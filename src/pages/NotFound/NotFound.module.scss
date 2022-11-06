@@ -1,0 +1,28 @@
+@use '../../sass/utils/variables';
+
+.container{
+    color: variables.$primary-color;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .statut{
+        font-size: 288px;
+        font-weight: 700;
+        margin-bottom: 299px;
+    }
+
+    .text{
+        font-size: 36px;
+        font-weight: 500;
+        margin-bottom: 182px;
+
+    }
+
+    .homeLink{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 159px;
+    }
+
+}

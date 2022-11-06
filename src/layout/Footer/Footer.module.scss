@@ -1,0 +1,23 @@
+footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 209px;
+
+    .logo{
+        img{
+            width: 122px;
+            margin-bottom: 33px;
+        }
+    }
+    
+    .copyright{
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 33px;
+    }
+}
+
