@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "pages/Home/Home.module.scss"
-import Card from 'components/Card'
+import styles from "pages/Home/Home.module.scss";
+import Card from "components/Card";
 import { useState, useEffect } from "react";
-import {getAccos} from "api/Acco"
+import { getAccos } from "api/Acco";
 
 const Home = () => {
   const [accos, setTodos] = useState([]);
@@ -15,11 +15,18 @@ const Home = () => {
     getAccosLoad();
   }, []);
 
-  console.log(accos);
-
-  return <div className={styles.container}>
-    <Card />
-  </div>;
+  return (
+    <div className={styles.container}>
+      {accos.map((accos, index) => (
+        <Card
+          title={accos.title}
+          cover={accos.cover}
+          id={accos.id}
+          key={index}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default Home;
