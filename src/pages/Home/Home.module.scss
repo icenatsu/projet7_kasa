@@ -1,5 +1,18 @@
+@use '../../sass/utils/variables';
+
 .container{
-    background-color:#F6F6F6;
+    background-color: variables.$secondary-color;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 31px;
+    border-radius: 25px;
+    padding-top: 25px;
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    .container{    
+        background-color: white;
+        margin-top: 22px;
+    }
 }

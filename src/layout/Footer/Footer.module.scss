@@ -1,5 +1,7 @@
+@use '../../sass/utils/variables';
+
 footer{
-    background-color: black;
+    background-color: variables.$footer-color;
     color: white;
     display: flex;
     align-items: center;
@@ -21,3 +23,10 @@ footer{
     }
 }
 
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    footer{
+        .copyright{
+            font-size: 12px;
+        }
+    }
+}

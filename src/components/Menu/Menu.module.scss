@@ -1,0 +1,6 @@
+@use '../../sass/utils/variables';
+
+.container{
+    border-radius: 10px;
+    background-color: variables.$primary-color;
+}

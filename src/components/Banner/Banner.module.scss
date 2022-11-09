@@ -1,0 +1,60 @@
+@use '../../sass/utils/variables';
+
+.bann{
+    height: 223px;
+    border-radius: 25px;
+    margin-top: 63px;
+    margin-bottom: 43px;
+    position: relative;
+
+    .title{
+        position: absolute;
+        color: variables.$secondary-color ;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        z-index: 2;
+        font-size: 39px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .background{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        background: rgba(0, 0, 0, 1);
+        background-blend-mode: darken;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 1;
+        opacity: 30%;
+    }
+    
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        top: 0;
+        z-index: -1;
+    }
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    .bann{
+        height: 111px;
+        margin: 0px 20px;
+
+        .title{
+            width: 250px;
+            top: 23px;
+            left: 5px;
+            transform: none;
+            text-align: left;
+            font-size: 24px;
+        }
+    }
+}

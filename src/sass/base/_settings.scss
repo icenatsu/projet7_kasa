@@ -1,3 +1,5 @@
+@use '../../sass/utils/variables';
+
 *::before,
 ::after{
     box-sizing: border-box;
@@ -14,4 +16,10 @@
 body{
     max-width: 1440px;
     margin: auto;
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    body{
+        max-width: 768px;
+    }
 }

@@ -1,31 +1,35 @@
 import React from "react";
 import styles from "pages/Home/Home.module.scss";
 import Card from "components/Card";
+import Banner from "components/Banner";
 import { useState, useEffect } from "react";
-import { getAccos } from "api/Acco";
+import axios from "axios";
 
 const Home = () => {
-  const [accos, setTodos] = useState([]);
+  const [accos, setAccos] = useState([]);
 
   useEffect(() => {
-    async function getAccosLoad() {
-      const accos = await getAccos();
-      setTodos(accos);
+    const fetchData = async () => {
+      const response = await axios.get("./logements.json");
+      setAccos(response.data);
     }
-    getAccosLoad();
+    fetchData();
   }, []);
 
   return (
-    <div className={styles.container}>
-      {accos.map((accos, index) => (
-        <Card
-          title={accos.title}
-          cover={accos.cover}
-          id={accos.id}
-          key={index}
-        />
-      ))}
-    </div>
+    <>
+      <Banner title="Chez vous, partout et ailleurs" />
+      <div className={styles.container}>
+        {accos.map((accos, index) => (
+          <Card
+            title={accos.title}
+            cover={accos.cover}
+            id={accos.id}
+            key={index}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
