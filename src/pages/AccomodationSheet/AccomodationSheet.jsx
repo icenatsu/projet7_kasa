@@ -2,12 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "pages/AccomodationSheet/AccomodationSheet.module.scss";
-import Slide from "components/Slide";
+import Slide from "components/Slide/Slide";
 // import Menu from "components/Menu";
 import axios from "axios";
 
 const AccommodationSheet = () => {
-  const [accommodation, setAccommodation] = useState([]);
+  const [accommodation, setAccommodation] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -21,9 +21,7 @@ const AccommodationSheet = () => {
     fetchDatas();
   }, [id]);
 
-  console.log(accommodation);
-
-  if (accommodation != []) {
+  if (accommodation) {
     return (
       <>
         <Slide />
@@ -32,7 +30,7 @@ const AccommodationSheet = () => {
         <div className={styles.tags}>
           {accommodation.tags.map((tag, index) => {
             return (
-              <div>
+              <div key={index}>
                 {tag}, {index}
               </div>
             );

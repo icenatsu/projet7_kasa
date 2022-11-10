@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "assets/img/logo_kasa.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "layout/Header/Header.module.scss";
 
 const Header = () => {
@@ -12,10 +12,10 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Accueil</Link>
+            <NavLink to="/">Accueil</NavLink>
           </li>
           <li>
-            <Link to="/about">A Propos</Link>
+            <NavLink to="/about">A Propos</NavLink>
           </li>
         </ul>
       </nav>
