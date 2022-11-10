@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Banner />
-      <Menu width="1023px" height="47px" />
+      <Menu toto="tatatatatta" />
     </>
   );
 };

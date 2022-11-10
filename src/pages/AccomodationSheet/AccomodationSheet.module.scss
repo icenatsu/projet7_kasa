@@ -1,3 +1,45 @@
-.title{
-    color: blue;
+@use '../../sass/utils/variables';
+
+.container{
+    color: variables.$primary-color;
+
+    .title{
+        font-size: 36px;
+        margin: 0;
+        margin-top: 30px;
+    }
+    .location{
+        font-size: 18px;
+        margin: 0;
+        margin-bottom: 23px;
+    }
+
+    .tagsAndRates{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .tags{
+            color: white;
+            font-size: 14px;
+            display: flex;
+          
+            .tag{
+                width: 140px;
+                height: 32px;
+                border-radius: 10px;
+                background-color: variables.$primary-color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 10px;
+            }
+        }
+    
+        .rating{
+            font-size: 50px;
+        }
+
+    }
+
 }

@@ -1,15 +1,13 @@
 import React from "react";
 import styles from "components/Menu/Menu.module.scss";
 
-const index = (props) => {
-  console.log(props);
-  return (
-    <div
-      className={styles.container}
-      width={props.width}
-      height={props.height}
-    ></div>
-  );
+const Menu = (props) => {
+  // console.log(toto); // Affiche bien menu
+  return <div className={styles[props.toto]}>test</div>;
 };
 
-export default index;
+export default Menu;
+
+// {
+//   /* <div className={styles["Event-Entries"]}></div> */
+// }

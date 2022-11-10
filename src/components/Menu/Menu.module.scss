@@ -1,6 +1,14 @@
 @use '../../sass/utils/variables';
 
-.container{
+// .test{
+//     color: blue;
+//     background-color: blue;
+// }
+
+.toto{
+    width: 100px;
+    height: 40px;
     border-radius: 10px;
     background-color: variables.$primary-color;
+    border: 1px solid black ;
 }
