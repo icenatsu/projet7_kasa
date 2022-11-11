@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Banner />
-      <Menu toto="tatatatatta" />
+      <Menu dropdown="dropdownAbout" />
     </>
   );
 };

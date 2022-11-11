@@ -1,14 +1,46 @@
 @use '../../sass/utils/variables';
 
-// .test{
-//     color: blue;
-//     background-color: blue;
-// }
 
-.toto{
-    width: 100px;
-    height: 40px;
+.container{
+    position: relative;
+    margin-bottom: 400px;
+
+    .dropdownAccomodation{
+        width: 582px;
+        height: 52px;
+        border-radius: 10px;
+        background-color: variables.$primary-color;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 10px;
+        z-index: 100;
+    }
+    
+    .content{
+        position: absolute;
+        top : 40px;
+        color: variables.$primary-color;
+        padding-top: 40px;
+        padding-left: 28px;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: #F6F6F6;
+        width: 582px;
+        height: 249px;
+        border-radius: 10px;
+        z-index: -111;
+       
+    }
+}
+
+.dropdownAbout{
+    width: 1023px;
+    height: 47px;
     border-radius: 10px;
     background-color: variables.$primary-color;
-    border: 1px solid black ;
 }

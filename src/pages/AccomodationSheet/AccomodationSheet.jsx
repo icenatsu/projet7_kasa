@@ -9,7 +9,7 @@ import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
 
 const AccommodationSheet = () => {
-  const [accommodation, setAccommodation] = useState(false);
+  const [accommodation, setAccommodation] = useState("");
   const { id } = useParams();
   const stars = [1, 2, 3, 4, 5];
 
@@ -61,7 +61,24 @@ const AccommodationSheet = () => {
               )}
             </div>
           </div>
-          <Menu toto="tatat" />
+          <div className={styles.dropdowns}>
+            <Menu
+              dropdown="dropdownAccomodation"
+              title="Description"
+              text={accommodation.description}
+            />
+            <Menu
+              dropdown="dropdownAccomodation"
+              title="Équipements"
+              text={accommodation.equipments.map((equipments, index) => {
+                return (
+                  <div className={styles.equipments} key={index}>
+                    {equipments}
+                  </div>
+                );
+              })}
+            />
+          </div>
         </div>
       </>
     );
