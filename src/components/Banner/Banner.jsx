@@ -3,10 +3,12 @@ import styles from "components/Banner/Banner.module.scss";
 import BannerHome from "assets/img/home_bann.png";
 import BannerAbout from "assets/img/about_bann.png";
 
-const index = (props) => {
+const Banner = (props) => {
   const url = document.location.pathname === "/";
   const bannerSrc = url ? BannerHome : BannerAbout;
-  const bannerAlt = url ? "Photo de paysage côtier" : "Photo de paysage Montagneux";
+  const bannerAlt = url
+    ? "Photo de paysage côtier"
+    : "Photo de paysage Montagneux";
 
   return (
     <div className={styles.bann}>
@@ -17,4 +19,4 @@ const index = (props) => {
   );
 };
 
-export default index;
+export default Banner;

@@ -24,24 +24,42 @@ const AccommodationSheet = () => {
     fetchDatas();
   }, [id]);
 
+  console.log(accommodation);
+
   if (accommodation) {
     return (
       <>
         <Slide />
         <div className={styles.container}>
-          <h1 className={styles.title}>{accommodation.title}</h1>
+          <div className={styles["container-title-host"]}>
+            <h1 className={styles["container-title-host__title"]}>
+              {accommodation.title}
+            </h1>
+            <div className={styles["container-title-host__host"]}>
+              <p className={styles["container-title-host__host__name"]}>
+                {accommodation.host.name}
+              </p>
+              <img
+                className={styles["container-title-host__host__picture"]}
+                src={accommodation.host.picture}
+              ></img>
+            </div>
+          </div>
           <p className={styles.location}>{accommodation.location}</p>
           <div className={styles.tagsAndRates}>
-            <div className={styles.tags}>
+            <div className={styles["tagsAndRates__tags"]}>
               {accommodation.tags.map((tag, index) => {
                 return (
-                  <div className={styles.tag} key={index}>
+                  <div
+                    className={styles["tagsAndRates__tags__item"]}
+                    key={index}
+                  >
                     {tag}
                   </div>
                 );
               })}
             </div>
-            <div className={styles.rating}>
+            <div className={styles["tagsAndRates__rating"]}>
               {stars.map((rate) =>
                 accommodation.rating >= rate ? (
                   <img

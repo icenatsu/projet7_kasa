@@ -3,11 +3,31 @@
 .container{
     color: variables.$primary-color;
 
-    .title{
-        font-size: 36px;
-        margin: 0;
+    .container-title-host{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-top: 30px;
+
+        &__title{
+            font-size: 36px;
+            margin: 0;
+        }
+    
+        &__host{
+            display: flex;
+            &__name{
+                font-size: 18px;
+                font-weight: 500;
+            }
+            &__picture{
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+            }
+        }
     }
+
     .location{
         font-size: 18px;
         margin: 0;
@@ -19,12 +39,12 @@
         justify-content: space-between;
         align-items: center;
 
-        .tags{
+        &__tags{
             color: white;
             font-size: 14px;
             display: flex;
-          
-            .tag{
+            
+            &__item{
                 width: 140px;
                 height: 32px;
                 border-radius: 10px;
@@ -35,13 +55,12 @@
                 margin-right: 10px;
             }
         }
-    
-        .rating{
+
+        &__rating{
             font-size: 50px;
         }
-
     }
-
+        
     .dropdowns{
         display: flex;
         justify-content: space-between;

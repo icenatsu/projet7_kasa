@@ -2,7 +2,7 @@ import React from "react";
 import styles from "components/Card/Card.module.scss";
 import { Link } from "react-router-dom";
 
-const index = (props) => {
+const Card = (props) => {
   return (
     <Link to={`acco/${props.id}`}>
       <article className={styles.card}>
@@ -15,4 +15,4 @@ const index = (props) => {
   );
 };
 
-export default index;
+export default Card;
