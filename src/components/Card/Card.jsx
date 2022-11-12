@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
   return (
-    <Link to={`acco/${props.id}`}>
-      <article className={styles.card}>
+    <article className={styles.card}>
+      <Link to={`acco/${props.id}`}>
         <p className={styles.card__title}>{props.title}</p>
         <div className={styles.card__layer}>
           <img src={props.cover} alt="location" />
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 };
 

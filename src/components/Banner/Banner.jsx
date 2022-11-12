@@ -11,9 +11,9 @@ const Banner = (props) => {
     : "Photo de paysage Montagneux";
 
   return (
-    <div className={styles.bann}>
-      <h1 className={styles.title}>{props.title}</h1>
-      <div className={styles.background}></div>
+    <div className={styles.banner}>
+      <h1 className={styles["banner__title"]}>{props.title}</h1>
+      <div className={styles["banner__background"]}></div>
       <img src={bannerSrc} alt={bannerAlt}></img>
     </div>
   );

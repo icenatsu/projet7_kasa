@@ -10,11 +10,11 @@ const Header = () => {
         <img src={logo} alt="logo kasa" />
       </div>
       <nav>
-        <ul>
-          <li>
+        <ul className={styles.list}>
+          <li className={styles["list__item"]}>
             <NavLink to="/">Accueil</NavLink>
           </li>
-          <li>
+          <li className={styles["list__item"]}>
             <NavLink to="/about">A Propos</NavLink>
           </li>
         </ul>

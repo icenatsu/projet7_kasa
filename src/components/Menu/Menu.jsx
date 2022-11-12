@@ -11,12 +11,20 @@ const Menu = (props) => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles[props.dropdown]}>
-        {props.title}
+    <div className={styles["menu-container"]}>
+      <div className={styles[`menu-container__${props.dropdown}`]}>
+        <p className={styles[`menu-container__${props.dropdown}__title`]}>
+          {props.title}
+        </p>
         <img src={arrow} alt="dropdown" onClick={showContent} />
       </div>
-      {show ? <div className={styles.content}>{props.text}</div> : null}
+      {show ? (
+        <div className={styles[`menu-container__content`]}>
+          <div className={styles[`menu-container__content__text`]}>
+            {props.text}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
