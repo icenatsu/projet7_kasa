@@ -1,0 +1,52 @@
+@use '../../sass/utils/variables';
+
+.container{
+    color: variables.$primary-color;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .statut{
+        font-size: 288px;
+        font-weight: 700;
+        margin: 0;
+        margin-top: 175px;
+    }
+
+    .text{
+        font-size: 36px;
+        font-weight: 500;
+        margin: 0;
+        margin-top: 66px;
+        text-align: center;
+    }
+
+    .homeLink{
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0;
+        margin-top: 182px;
+        margin-bottom: 159px;
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+
+    .container{    
+        .statut{
+            font-size: 96px;
+        }
+    
+        .text{
+            font-size: 18px;
+            margin-top: 11px;
+        }
+    
+        .homeLink{
+            font-size: 14px;
+            margin-top: 135px;
+           
+        }
+    }
+}

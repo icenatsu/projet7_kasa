@@ -1,0 +1,69 @@
+@use '../../sass/utils/variables';
+
+
+.menu-container{
+    position: relative;
+    margin-bottom: 200px;
+    flex-wrap: nowrap;
+    max-height: 50%;
+    display: flex;
+
+    &:nth-child(1){
+        margin-right: 60px;
+    }
+
+    &__accommodation{
+        border-radius: 10px;
+        background-color: variables.$primary-color;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+
+        &__title{
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            padding-left: 20px;
+        }
+
+        & img{
+            padding-right: 10px;
+        }
+    }
+    
+    &__content{
+        position: absolute;
+        width: 100%;
+        top : 40px;
+        color: variables.$primary-color;
+        background-color: #F6F6F6;
+        border-radius: 10px;
+        z-index: -111;
+        
+        &__text{
+            font-size: 18px;
+            font-weight: 400;
+            padding: 40px 12px 20px 20px;
+        }
+       
+    }
+}
+
+.menuAbout{
+    width: 1023px;
+    height: 47px;
+    border-radius: 10px;
+    background-color: variables.$primary-color;
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    .menu-container{
+        &:nth-child(1){
+            margin-right: 0px;
+        }
+    }
+}
+
+

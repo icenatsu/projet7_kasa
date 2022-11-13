@@ -1,0 +1,118 @@
+@use '../../sass/utils/variables';
+
+.container-pictures{
+    height: 415px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+
+.container{
+    color: variables.$primary-color;
+    .container-general{
+        display: flex;
+        justify-content: space-between;
+
+        .container-infos{
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+
+            &__title{
+                font-size: 36px;
+                margin: 0;
+                width: 100%;
+            }
+
+            &__location{
+                font-size: 18px;
+                margin: 0;
+                margin-bottom: 23px;
+            }
+
+            &__tags{
+                display: flex;
+                font-size: 14px;
+                font-weight: 500;
+
+                &__item{
+                    width: 140px;
+                    height: 32px;
+                    border-radius: 10px;
+                    background-color: variables.$primary-color;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .container-host-rate{
+            margin-top: 10px;
+            &__host{
+                display: flex;
+                padding-top: 10px;
+                justify-content: space-between;
+                &__name{
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin-top: 10px;
+                    width: 70px;
+                    padding-left: 40px;
+
+                }
+                &__picture{
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                }
+            }
+
+            &__rating{
+                display: flex;
+                font-size: 50px;
+                
+            }
+
+        }
+
+    }
+        
+    .dropdowns{
+        display: flex;
+        flex-direction: column;
+        height: 310px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    .container{
+    
+        .container-general{
+            display: flex;
+            flex-direction: column;
+     
+            .container-host-rate{
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+            
+        .dropdowns{
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+            flex-wrap: nowrap;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}

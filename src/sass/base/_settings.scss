@@ -1,0 +1,25 @@
+@use '../../sass/utils/variables';
+
+*::before,
+::after{
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    // 1rem = 10px
+    font-size: 62.5%;
+}
+
+body{
+    max-width: 1440px;
+    margin: auto;
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    body{
+        max-width: 768px;
+    }
+}
