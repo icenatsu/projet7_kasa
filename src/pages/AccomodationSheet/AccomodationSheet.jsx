@@ -29,7 +29,10 @@ const AccommodationSheet = () => {
   if (accommodation) {
     return (
       <>
-        <Slide />
+        {/* <Slide /> */}
+        <div className={styles["container-pictures"]}>
+          <Slide array={accommodation.pictures}></Slide>
+        </div>
         <div className={styles.container}>
           <div className={styles["container-general"]}>
             <div className={styles["container-infos"]}>
@@ -85,12 +88,12 @@ const AccommodationSheet = () => {
           </div>
           <div className={styles.dropdowns}>
             <Menu
-              dropdown="accomodation"
+              dropdown="accommodation"
               title="Description"
               text={accommodation.description}
             />
             <Menu
-              dropdown="accomodation"
+              dropdown="accommodation"
               title="Équipements"
               text={accommodation.equipments.map((equipments, index) => {
                 return (

@@ -1,8 +1,15 @@
 @use '../../sass/utils/variables';
 
+.container-pictures{
+    height: 415px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+
 .container{
     color: variables.$primary-color;
-
     .container-general{
         display: flex;
         justify-content: space-between;
