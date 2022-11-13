@@ -16,8 +16,6 @@ const Slide = (props) => {
     setCurrImg(currImg === 0 ? props.array.length - 1 : currImg - 1);
   };
 
-  console.log(props.array.length);
-
   useEffect(() => {
     const toogle = () => {
       if (props.array.length > 1) {
@@ -26,8 +24,6 @@ const Slide = (props) => {
     };
     toogle();
   }, []);
-
-  console.log(active);
 
   return (
     <div className={styles["container"]}>
@@ -38,13 +34,13 @@ const Slide = (props) => {
       />
       <div className={styles["container__next-previous"]}>
         <img
-          className={active ? styles.active : ""}
+          className={active && styles.active}
           src={previousArrow}
           onClick={previousImg}
           alt="previous"
         />
         <img
-          className={active ? styles.active : ""}
+          className={active && styles.active}
           src={nextArrow}
           onClick={nextImg}
           alt="next"

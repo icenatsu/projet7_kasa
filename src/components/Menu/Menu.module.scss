@@ -3,10 +3,10 @@
 
 .menu-container{
     position: relative;
-    margin-bottom: 200px;
     flex-wrap: nowrap;
-    max-height: 50%;
     display: flex;
+    max-height: 50%;
+    margin-bottom: 200px;
 
     &:nth-child(1){
         margin-right: 60px;
@@ -29,26 +29,38 @@
         }
 
         & img{
-            padding-right: 10px;
+            position: absolute;
+            right: 10px;
+            transform-origin: center;
+            transform: rotate(0deg);
+        }
+
+        .active {
+            transform: rotate(180deg);        
         }
     }
-    
+
     &__content{
+        display: none;
         position: absolute;
         width: 100%;
-        top : 40px;
+        top : 50px;
         color: variables.$primary-color;
         background-color: #F6F6F6;
         border-radius: 10px;
         z-index: -111;
-        
+
         &__text{
             font-size: 18px;
             font-weight: 400;
-            padding: 40px 12px 20px 20px;
+            padding: 10px 12px 20px 20px;
         }
-       
     }
+
+    .active {
+        display: block;      
+    }
+
 }
 
 .menuAbout{
