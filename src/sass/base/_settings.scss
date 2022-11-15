@@ -13,13 +13,14 @@
     font-size: 62.5%;
 }
 
-body{
-    max-width: 1440px;
+main{
+    max-width: 1240px;
     margin: auto;
+    width: 95%;
 }
 
 @media screen and (max-width: variables.$breakpoint-mobile) {
-    body{
-        max-width: 768px;
+    main{
+        width: 90%;
     }
 }

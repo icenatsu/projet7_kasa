@@ -81,19 +81,14 @@
         
     .dropdowns{
         display: flex;
-        flex-direction: column;
-        height: 310px;
-        flex-wrap: wrap;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        justify-content: space-between;
     }
 }
 
-@media screen and (max-width: variables.$breakpoint-mobile) {
+@media screen and (max-width: variables.$breakpoint-tablette) {
     .container{
     
         .container-general{
-            display: flex;
             flex-direction: column;
      
             .container-host-rate{
@@ -104,13 +99,33 @@
             }
         }
             
-        .dropdowns{
-            display: flex;
+        // .dropdowns{
+        //     display: flex;
+        //     flex-direction: column;
+        //     height: 600px;
+        //     flex-wrap: nowrap;
+        //     margin-top: 20px;
+        //     margin-bottom: 20px;
+        // }
+    }
+}
+
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    .container{
+    
+        .container-general{
             flex-direction: column;
-            height: 600px;
-            flex-wrap: nowrap;
-            margin-top: 20px;
-            margin-bottom: 20px;
+     
+            .container-host-rate{
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                align-items: center;
+            }
         }
+            
+        // .dropdowns{
+        //     display: flex;
+        // }
     }
 }

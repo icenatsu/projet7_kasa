@@ -11,11 +11,15 @@ const Menu = (props) => {
     setActive(!active);
   };
 
-  console.log(active);
   return (
-    <div className={styles["menu-container"]}>
-      <div className={styles[`menu-container__${props.dropdown}`]}>
-        <p className={styles[`menu-container__${props.dropdown}__title`]}>
+    // <div className={styles["menu-container"]}>
+    <div className={styles[`menu-container__${props.dropdown}`]}>
+      <div className={styles[`menu-container__${props.dropdown}__element`]}>
+        <p
+          className={
+            styles[`menu-container__${props.dropdown}__element__title`]
+          }
+        >
           {props.title}
         </p>
         <img
@@ -28,12 +32,15 @@ const Menu = (props) => {
       {/* {active ? ( */}
       <div
         className={cx(
-          styles[`menu-container__content`],
+          styles[`menu-container__accommodation__content`],
           active && styles.active
         )}
       >
-        <p className={styles[`menu-container__content__text`]}>{props.text}</p>
+        <p className={styles[`menu-container__accommodation__content__text`]}>
+          {props.text}
+        </p>
       </div>
+      {/* </div> */}
       {/* // ) : null} */}
     </div>
   );

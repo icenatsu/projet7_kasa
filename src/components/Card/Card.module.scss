@@ -1,15 +1,18 @@
 @use '../../sass/utils/variables';
 
 .card {
-    width: 28%;
+    width: 340px;
     height: 340px;
     min-width: 340px;
     border-radius: 10px;
     color: white;
+    margin: 2%;
     display: flex;
     align-items: flex-end;
     position: relative; 
-    margin: 25px 30px;
+    
+    // margin: 50px 56px 60px 50px;
+
 
     a{
         width: 100%;
@@ -56,6 +59,6 @@
         min-width: 300px;
         height: 255px;
         min-height: 255px;
-        margin: 10px 30px;
+        // margin: 10px 30px;
     }
 }

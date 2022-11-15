@@ -1,25 +1,16 @@
 @use '../../sass/utils/variables';
 
-
-.menu-container{
-    position: relative;
-    flex-wrap: nowrap;
+.menu-container__accommodation{       
     display: flex;
-    max-height: 50%;
-    margin-bottom: 200px;
+    flex-direction: column;
+    width: 45%;
+    margin-top: 20px;
 
-    &:nth-child(1){
-        margin-right: 60px;
-    }
-
-    &__accommodation{
+    &__element{
         border-radius: 10px;
         background-color: variables.$primary-color;
-        width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        z-index: 100;
 
         &__title{
             color: white;
@@ -29,26 +20,20 @@
         }
 
         & img{
-            position: absolute;
-            right: 10px;
-            transform-origin: center;
-            transform: rotate(0deg);
+            display: block;
+            transform: rotate(180deg);
+            margin-right: 10px;
         }
 
-        .active {
-            transform: rotate(180deg);        
-        }
     }
 
     &__content{
-        display: none;
-        position: absolute;
-        width: 100%;
-        top : 50px;
+        display: none; 
         color: variables.$primary-color;
         background-color: #F6F6F6;
         border-radius: 10px;
-        z-index: -111;
+        margin-top: -10px;
+        z-index: -999;
 
         &__text{
             font-size: 18px;
@@ -58,10 +43,11 @@
     }
 
     .active {
-        display: block;      
+        display: block;   
+        transform: rotate(0deg);        
     }
-
 }
+
 
 .menuAbout{
     width: 1023px;
@@ -70,12 +56,8 @@
     background-color: variables.$primary-color;
 }
 
-@media screen and (max-width: variables.$breakpoint-mobile) {
-    .menu-container{
-        &:nth-child(1){
-            margin-right: 0px;
-        }
-    }
-}
+// @media screen and (max-width: variables.$breakpoint-mobile) {
+
+// }
 
 

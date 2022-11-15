@@ -6,6 +6,8 @@ import styles from "layout/Header/Header.module.scss";
 const Header = () => {
   return (
     <header>
+      {/* <div className={styles["container-larg-max"]}> */}
+      {/* <div className={styles["container-header"]}> */}
       <div className={styles.logo}>
         <img src={logo} alt="logo kasa" />
       </div>
@@ -19,6 +21,8 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      {/* </div> */}
+      {/* </div> */}
     </header>
   );
 };
