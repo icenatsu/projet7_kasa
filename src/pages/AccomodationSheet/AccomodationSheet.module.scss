@@ -1,11 +1,12 @@
 @use '../../sass/utils/variables';
 
 .container-pictures{
-    height: 415px;
     border-radius: 25px;
     overflow: hidden;
     position: relative;
     margin-top: 20px;
+    height: 415px;
+    max-height: 415px;
 }
 
 .container{
@@ -86,6 +87,9 @@
 }
 
 @media screen and (max-width: variables.$breakpoint-tablette) {
+    .container-pictures{
+        max-height: 330px;
+    }
     .container{
         .container-general{
             flex-direction: column;     
@@ -102,6 +106,9 @@
 }
 
 @media screen and (max-width: variables.$breakpoint-mobile) {
+    .container-pictures{
+        max-height: 255px;
+    }
     .container{ 
         .container-general{    
             .container-infos{
