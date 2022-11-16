@@ -6,20 +6,20 @@ import previousArrow from "assets/img/arrow_left.png";
 
 const Slide = (props) => {
   const [currImg, setCurrImg] = useState(0);
-  const [active, setActive] = useState(false);
+  const [show, setShow] = useState(false);
 
   const nextImg = () => {
     setCurrImg(currImg === props.array.length - 1 ? 0 : currImg + 1);
   };
 
   const previousImg = () => {
-    setCurrImg(currImg === 0 ? props.array.length - 1 : currImg - 1);
+    return setCurrImg(currImg === 0 ? props.array.length - 1 : currImg - 1);
   };
 
   useEffect(() => {
     const toogle = () => {
       if (props.array.length > 1) {
-        setActive(!active);
+        setShow(!show);
       }
     };
     toogle();
@@ -27,25 +27,36 @@ const Slide = (props) => {
 
   return (
     <div className={styles["container"]}>
-      <img
-        className={styles["container__logement"]}
-        src={props.array[currImg]}
-        alt="photo du logement"
-      />
-      <div className={styles["container__next-previous"]}>
-        <img
-          className={active && styles.active}
-          src={previousArrow}
-          onClick={previousImg}
-          alt="previous"
-        />
-        <img
-          className={active && styles.active}
-          src={nextArrow}
-          onClick={nextImg}
-          alt="next"
-        />
-      </div>
+      {show ? (
+        <div className={styles["container__next-previous"]}>
+          <img
+            className={styles["container__next-previous__prev"]}
+            src={previousArrow}
+            onClick={previousImg}
+            alt="previous"
+          />
+          <img
+            className={styles["container__next-previous__next"]}
+            src={nextArrow}
+            onClick={nextImg}
+            alt="next"
+          />
+        </div>
+      ) : null}
+      {props.array.map((slide, index) => {
+        return (
+          <div
+            key={index}
+            className={
+              index === currImg
+                ? [styles["container__slide"], styles["active"]].join(" ")
+                : styles["container__slide"]
+            }
+          >
+            {index === currImg && <img src={slide} alt="photo du logement" />}
+          </div>
+        );
+      })}
     </div>
   );
 };

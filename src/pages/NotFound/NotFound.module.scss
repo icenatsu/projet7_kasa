@@ -31,6 +31,26 @@
     }
 }
 
+@media screen and (max-width: variables.$breakpoint-tablette) {
+
+    .container{    
+        .statut{
+            font-size: 192px;
+        }
+    
+        .text{
+            font-size: 18px;
+            margin-top: 11px;
+        }
+    
+        .homeLink{
+            font-size: 14px;
+            margin-top: 135px;
+           
+        }
+    }
+}
+
 @media screen and (max-width: variables.$breakpoint-mobile) {
 
     .container{    

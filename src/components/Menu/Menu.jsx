@@ -12,9 +12,11 @@ const Menu = (props) => {
   };
 
   return (
-    // <div className={styles["menu-container"]}>
     <div className={styles[`menu-container__${props.dropdown}`]}>
-      <div className={styles[`menu-container__${props.dropdown}__element`]}>
+      <div
+        className={styles[`menu-container__${props.dropdown}__element`]}
+        onClick={showContent}
+      >
         <p
           className={
             styles[`menu-container__${props.dropdown}__element__title`]
@@ -22,14 +24,8 @@ const Menu = (props) => {
         >
           {props.title}
         </p>
-        <img
-          src={arrow}
-          alt="dropdown"
-          onClick={showContent}
-          className={active && styles.active}
-        />
+        <img src={arrow} alt="dropdown" className={active && styles.active} />
       </div>
-      {/* {active ? ( */}
       <div
         className={cx(
           styles[`menu-container__accommodation__content`],
@@ -40,8 +36,6 @@ const Menu = (props) => {
           {props.text}
         </p>
       </div>
-      {/* </div> */}
-      {/* // ) : null} */}
     </div>
   );
 };

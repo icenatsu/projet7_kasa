@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: column;
     width: 45%;
-    margin-top: 20px;
 
     &__element{
         border-radius: 10px;
         background-color: variables.$primary-color;
         display: flex;
         justify-content: space-between;
+        cursor: pointer;
 
         &__title{
             color: white;
@@ -56,8 +56,11 @@
     background-color: variables.$primary-color;
 }
 
-// @media screen and (max-width: variables.$breakpoint-mobile) {
-
-// }
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    .menu-container__accommodation{       
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
 
 

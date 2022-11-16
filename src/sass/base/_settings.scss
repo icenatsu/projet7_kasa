@@ -18,9 +18,3 @@ main{
     margin: auto;
     width: 95%;
 }
-
-@media screen and (max-width: variables.$breakpoint-mobile) {
-    main{
-        width: 90%;
-    }
-}

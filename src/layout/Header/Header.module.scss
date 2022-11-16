@@ -28,7 +28,7 @@ header{
                     text-decoration: underline;
                 }
                 &:nth-child(1){
-                    padding-right: 50px; 
+                    margin-right: 50px; 
                 }
             }
         }
@@ -52,15 +52,23 @@ header{
 @media screen and (max-width: variables.$breakpoint-mobile) {
 
     header{ 
-        width: 90%;
         .logo {
             img{
-                height: 47px;
+                height: 40px;
             }
         }
         nav{
             font-size: 12px;   
             text-transform: uppercase;
+
+            .list{    
+                &__item{
+                    &:nth-child(1){
+                        margin-left: -40px; 
+                        margin-right: 10px;
+                    }
+                }
+            }
         }              
     }
 }

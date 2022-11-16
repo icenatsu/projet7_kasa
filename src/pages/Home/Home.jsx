@@ -4,14 +4,20 @@ import Card from "components/Card/Card";
 import Banner from "components/Banner/Banner";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
-  const [accommodations, setAccos] = useState([]);
+  const [accommodations, setAccommodations] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("./logements.json");
-      setAccos(response.data);
+      try {
+        const response = await axios.get("./logements.json");
+        setAccommodations(response.data);
+      } catch (e) {
+        toast.error("Les logements ne sont pas disponibles");
+      }
     };
     fetchData();
   }, []);
@@ -29,6 +35,7 @@ const Home = () => {
           />
         ))}
       </div>
+      <ToastContainer />
     </>
   );
 };

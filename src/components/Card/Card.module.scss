@@ -10,9 +10,6 @@
     display: flex;
     align-items: flex-end;
     position: relative; 
-    
-    // margin: 50px 56px 60px 50px;
-
 
     a{
         width: 100%;
@@ -47,9 +44,9 @@
     .card {
         width: 20%;
         margin: auto;
-        min-width: 320px;
-        min-height: 320px;
-        margin: 20px 30px;
+        min-width: 310px;
+        min-height: 310px;
+        margin: 40px 20px;
     }
 }
 
@@ -59,6 +56,6 @@
         min-width: 300px;
         height: 255px;
         min-height: 255px;
-        // margin: 10px 30px;
+        margin: 20px 0px;
     }
 }

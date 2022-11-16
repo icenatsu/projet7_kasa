@@ -7,6 +7,8 @@ import Menu from "components/Menu/Menu";
 import axios from "axios";
 import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AccommodationSheet = () => {
   const [accommodation, setAccommodation] = useState("");
@@ -15,21 +17,23 @@ const AccommodationSheet = () => {
 
   useEffect(() => {
     const fetchDatas = async () => {
-      const response = await axios("/logements.json");
-      const currentAccommodation = response.data.find(
-        (accommodation) => accommodation.id === id
-      );
-      setAccommodation(currentAccommodation);
+      try {
+        const response = await axios("/logements.json");
+        const currentAccommodation = response.data.find(
+          (accommodation) => accommodation.id === id
+        );
+        setAccommodation(currentAccommodation);
+      } catch (e) {
+        console.log(e.message);
+        toast.error("Le logement n'est pas disponible");
+      }
     };
     fetchDatas();
   }, [id]);
 
-  console.log(accommodation);
-
   if (accommodation) {
     return (
       <>
-        {/* <Slide /> */}
         <div className={styles["container-pictures"]}>
           <Slide array={accommodation.pictures}></Slide>
         </div>
@@ -105,6 +109,7 @@ const AccommodationSheet = () => {
             />
           </div>
         </div>
+        <ToastContainer />
       </>
     );
   }

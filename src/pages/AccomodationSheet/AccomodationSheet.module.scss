@@ -60,9 +60,8 @@
                     font-size: 18px;
                     font-weight: 500;
                     margin-top: 10px;
-                    width: 70px;
-                    padding-left: 40px;
-
+                    width: 95px;
+                    padding-left: 25px;
                 }
                 &__picture{
                     width: 64px;
@@ -82,50 +81,41 @@
     .dropdowns{
         display: flex;
         justify-content: space-between;
+        margin-top: 24px;
     }
 }
 
 @media screen and (max-width: variables.$breakpoint-tablette) {
     .container{
-    
         .container-general{
-            flex-direction: column;
-     
+            flex-direction: column;     
             .container-host-rate{
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: space-between;
                 align-items: center;
-            }
-        }
             
-        // .dropdowns{
-        //     display: flex;
-        //     flex-direction: column;
-        //     height: 600px;
-        //     flex-wrap: nowrap;
-        //     margin-top: 20px;
-        //     margin-bottom: 20px;
-        // }
+            }
+        }    
+            
     }
 }
 
 @media screen and (max-width: variables.$breakpoint-mobile) {
-    .container{
-    
-        .container-general{
-            flex-direction: column;
-     
-            .container-host-rate{
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: space-between;
-                align-items: center;
-            }
+    .container{ 
+        .container-general{    
+            .container-infos{
+                &__tags{
+        
+                    &__item{
+                        height: 36px;
+                    }
+                }
+            }    
         }
-            
-        // .dropdowns{
-        //     display: flex;
-        // }
+        .dropdowns{
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
     }
 }
