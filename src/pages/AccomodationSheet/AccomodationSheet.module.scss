@@ -1,7 +1,7 @@
 @use '../../sass/utils/variables';
 
 .container-pictures{
-    border-radius: 25px;
+    border-radius: variables.$big-radius;
     overflow: hidden;
     position: relative;
     margin-top: 20px;
@@ -40,7 +40,7 @@
                 &__item{
                     width: 140px;
                     height: 32px;
-                    border-radius: 10px;
+                    border-radius: variables.$small-radius;
                     background-color: variables.$primary-color;
                     color: white;
                     display: flex;
@@ -62,7 +62,7 @@
                     font-weight: 500;
                     margin-top: 10px;
                     width: 95px;
-                    padding-left: 25px;
+                    padding-left: 70px;
                 }
                 &__picture{
                     width: 64px;
@@ -70,11 +70,11 @@
                     border-radius: 50%;
                 }
             }
-
             &__rating{
                 display: flex;
-                font-size: 50px;
-                
+                justify-content: end;
+                height: 38px;
+                margin-top: 10px;        
             }
         }
     }
@@ -93,15 +93,40 @@
     .container{
         .container-general{
             flex-direction: column;     
+            .container-infos{
+                &__title{
+                    font-size: 30px;
+                }
+    
+                &__location{
+                    font-size: 16px;
+                }
+                &__tags{
+                    font-size: 13px;
+                }
+            }   
             .container-host-rate{
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: space-between;
                 align-items: center;
-            
+                
+                &__host{
+                    &__name{
+                        font-size: 15px;
+                        width: 60px;
+                    }
+                    &__picture{
+                        width: 55px;
+                        height: 55px;
+                        border-radius: 50%;
+                    }
+                }
+                &__rating{
+                    height: 30px;
+                }
             }
-        }    
-            
+        } 
     }
 }
 
@@ -112,13 +137,36 @@
     .container{ 
         .container-general{    
             .container-infos{
+                &__title{
+                    font-size: 18px;       
+                }
+    
+                &__location{
+                    font-size: 14px;
+                }
                 &__tags{
-        
-                    &__item{
-                        height: 36px;
+                    font-size: 12px;
+                    height: 36px;
+                }
+            } 
+               
+            .container-host-rate{
+                &__host{
+                    &__name{
+                        font-size: 12px;
+                        width: 50px;
+                        padding-left: 0px;
+                    }
+                    &__picture{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
                     }
                 }
-            }    
+                &__rating{
+                    height: 20px;
+                }
+            } 
         }
         .dropdowns{
             flex-direction: column;

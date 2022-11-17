@@ -19,17 +19,17 @@ const AccommodationSheet = () => {
     const fetchDatas = async () => {
       try {
         const response = await axios("/logements.json");
+
         const currentAccommodation = response.data.find(
           (accommodation) => accommodation.id === id
         );
         setAccommodation(currentAccommodation);
       } catch (e) {
-        console.log(e.message);
         toast.error("Le logement n'est pas disponible");
       }
     };
     fetchDatas();
-  }, [id]);
+  }, []);
 
   if (accommodation) {
     return (
@@ -109,9 +109,10 @@ const AccommodationSheet = () => {
             />
           </div>
         </div>
-        <ToastContainer />
       </>
     );
+  } else {
+    <ToastContainer />;
   }
 };
 

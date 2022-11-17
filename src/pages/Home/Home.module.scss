@@ -2,7 +2,7 @@
 
 .container{
     background-color: variables.$secondary-color;
-    border-radius: 25px;
+    border-radius: variables.$big-radius;
     padding-top: 25px;
     display: flex;
     flex-wrap: wrap;
@@ -10,11 +10,14 @@
 }
 
 @media screen and (max-width: variables.$breakpoint-tablette) {
-
+    .container{
+        margin-top: 40px;
+    }
 }
 
 @media screen and (max-width: variables.$breakpoint-mobile) {
     .container{
         background-color: white;
+        margin-top: 0px;
     }
 }

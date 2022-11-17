@@ -6,7 +6,7 @@
     width: 45%;
 
     &__element{
-        border-radius: 10px;
+        border-radius: variables.$small-radius;
         background-color: variables.$primary-color;
         display: flex;
         justify-content: space-between;
@@ -24,14 +24,13 @@
             transform: rotate(180deg);
             margin-right: 10px;
         }
-
     }
 
     &__content{
         display: none; 
         color: variables.$primary-color;
         background-color: #F6F6F6;
-        border-radius: 10px;
+        border-radius: variables.$small-radius;
         margin-top: -10px;
         z-index: -999;
 
@@ -52,14 +51,52 @@
 .menuAbout{
     width: 1023px;
     height: 47px;
-    border-radius: 10px;
+    border-radius: variables.$small-radius;
     background-color: variables.$primary-color;
+}
+
+@media screen and (max-width: variables.$breakpoint-tablette) {
+    .menu-container__accommodation{       
+        &__element{
+            &__title{
+                font-size: 15px;
+            }
+            & img{
+                height: 17px;
+                margin-top: 15px;
+            }
+        }
+
+        &__content{
+            &__text{
+                font-size: 15px;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: variables.$breakpoint-mobile) {
     .menu-container__accommodation{       
         width: 100%;
         margin-bottom: 10px;
+
+        &__element{
+
+            &__title{
+                font-size: 13px;
+            }
+            & img{
+                height: 15px;
+                margin-top: 12px;
+            }
+        }
+
+        &__content{
+            &__text{
+                font-size: 13px;
+            }
+        }
+
     }
 }
 

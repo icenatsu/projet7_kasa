@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         element: <AccommodationSheet />,
       },
       {
-        path: "/*",
+        path: "*",
         element: <Error />,
       },
     ],
