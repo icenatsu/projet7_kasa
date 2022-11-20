@@ -15,7 +15,16 @@
         background-color: variables.$primary-color;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         cursor: pointer;
+        height: 52px;
+
+        @media screen and (max-width: variables.$breakpoint-tablette) {
+            height: 40px;
+        }
+        @media screen and (max-width: variables.$breakpoint-mobile) {
+            height: 30px;
+        }
 
         
         &__title{
@@ -39,11 +48,9 @@
 
             @media screen and (max-width: variables.$breakpoint-tablette) {
                 height: 17px;
-                margin-top: 15px;  
             }
             @media screen and (max-width: variables.$breakpoint-mobile) {
                 height: 15px;
-                margin-top: 12px;
             }
         }
     }
@@ -54,13 +61,13 @@
         color: variables.$primary-color;
         background-color: #F6F6F6;
         border-radius: variables.$small-radius;
-        margin-top: -10px;
+        margin-top: -15px;
         z-index: -999;
 
         &__text{
             font-size: 18px;
             font-weight: 400;
-            padding: 10px 12px 20px 20px;
+            padding: 30px 12px 30px 20px;
 
             @media screen and (max-width: variables.$breakpoint-tablette) {
                 font-size: 15px; 

@@ -42,11 +42,10 @@
                     font-size: 18px;                       
                 }
             }
-        
 
             &__location{
                 font-size: 18px;
-                margin: 0;
+                margin-top: 5px;
                 margin-bottom: 23px;
                 
                 @media screen and (max-width: variables.$breakpoint-tablette) {
@@ -105,7 +104,6 @@
                     font-weight: 500;
                     margin-top: 10px;
                     width: 95px;
-                    padding-left: 70px;
 
                     @media screen and (max-width: variables.$breakpoint-tablette) {
                         font-size: 15px;
