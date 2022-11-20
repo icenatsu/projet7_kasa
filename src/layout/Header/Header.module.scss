@@ -8,16 +8,30 @@ header{
     justify-content: space-between;
     align-items: center;
     color: variables.$primary-color;
-
+    
     .logo {
         img{
             height: 68px;
+
+            @media screen and (max-width: variables.$breakpoint-tablette) {
+                height: 58px;      
+            }
+            @media screen and (max-width: variables.$breakpoint-mobile) {
+                height: 40px;
+            }
         }
     }
-    
     nav{
         font-size: 24px;
         font-weight: 500;
+
+        @media screen and (max-width: variables.$breakpoint-tablette) {
+            font-size: 18px;  
+        }
+        @media screen and (max-width: variables.$breakpoint-mobile) {
+            font-size: 12px;   
+            text-transform: uppercase;
+        }
 
         .list{
             list-style: none;
@@ -29,47 +43,14 @@ header{
                 }
                 &:nth-child(1){
                     margin-right: 50px; 
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: variables.$breakpoint-tablette) {
-    header{
-        
-        .logo {
-            img{
-                height: 58px;
-            }
-        }
-        nav{
-            font-size: 18px;  
-        }
-    }
-}
-
-@media screen and (max-width: variables.$breakpoint-mobile) {
-
-    header{ 
-        .logo {
-            img{
-                height: 40px;
-            }
-        }
-        nav{
-            font-size: 12px;   
-            text-transform: uppercase;
-
-            .list{    
-                &__item{
-                    &:nth-child(1){
+                    
+                    @media screen and (max-width: variables.$breakpoint-mobile) {
                         margin-left: -40px; 
                         margin-right: 10px;
                     }
                 }
             }
-        }              
+        }
     }
 }
 

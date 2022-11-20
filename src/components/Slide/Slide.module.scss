@@ -14,7 +14,15 @@
             left:20px;
             z-index: 999;
             cursor: pointer;
+
+            @media screen and (max-width: variables.$breakpoint-tablette) {
+                height: 70px;
+            }
+            @media screen and (max-width: variables.$breakpoint-mobile) {
+                height: 50px;
+            }
         }
+    
         
         &__next{  
             position: absolute;
@@ -23,6 +31,13 @@
             right:20px;
             z-index: 999;
             cursor: pointer;
+
+            @media screen and (max-width: variables.$breakpoint-tablette) {
+                height: 70px;
+            }
+            @media screen and (max-width: variables.$breakpoint-mobile) {
+                height: 50px;
+            }    
         }
     }
 
@@ -44,31 +59,4 @@
     }
 }
 
-@media screen and (max-width: variables.$breakpoint-tablette) {
-    .container{
-        &__next-previous{
-            &__prev{    
-                height: 70px;
-            }
-            
-            &__next{  
-                height: 70px;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: variables.$breakpoint-mobile) {
-    .container{
-        &__next-previous{
-            &__prev{    
-                height: 50px;
-            }
-            
-            &__next{  
-                height: 50px;
-            }
-        }
-    }
-}
 

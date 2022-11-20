@@ -7,6 +7,14 @@
     margin-top: 20px;
     height: 415px;
     max-height: 415px;
+
+    @media screen and (max-width: variables.$breakpoint-tablette) {
+        max-height: 330px;    
+    }
+    @media screen and (max-width: variables.$breakpoint-mobile) {
+    
+            max-height: 255px;    
+    }
 }
 
 .container{
@@ -14,28 +22,54 @@
     .container-general{
         display: flex;
         justify-content: space-between;
-
+        @media screen and (max-width: variables.$breakpoint-tablette) {
+            flex-direction: column;     
+        }
         .container-infos{
             display: flex;
             flex-direction: column;
             margin-top: 30px;
-
+            
             &__title{
                 font-size: 36px;
                 margin: 0;
                 width: 100%;
+                
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    font-size: 30px;
+                }
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    font-size: 18px;                       
+                }
             }
+        
 
             &__location{
                 font-size: 18px;
                 margin: 0;
                 margin-bottom: 23px;
+                
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    font-size: 16px;
+                }
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    font-size: 14px;    
+                }
             }
 
             &__tags{
                 display: flex;
                 font-size: 14px;
                 font-weight: 500;
+                    
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    font-size: 13px;
+                }  
+                
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    font-size: 12px;
+                    height: 36px;   
+                }
 
                 &__item{
                     width: 140px;
@@ -53,122 +87,77 @@
 
         .container-host-rate{
             margin-top: 10px;
+            
+            @media screen and (max-width: variables.$breakpoint-tablette) {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                align-items: center;
+            }
+
             &__host{
                 display: flex;
                 padding-top: 10px;
                 justify-content: space-between;
+                
                 &__name{
                     font-size: 18px;
                     font-weight: 500;
                     margin-top: 10px;
                     width: 95px;
                     padding-left: 70px;
+
+                    @media screen and (max-width: variables.$breakpoint-tablette) {
+                        font-size: 15px;
+                        width: 75px;
+                    }
+                    @media screen and (max-width: variables.$breakpoint-mobile) {
+                        font-size: 12px;
+                        width: 60px;
+                        padding-left: 0px;
+                    }
                 }
+
                 &__picture{
                     width: 64px;
                     height: 64px;
                     border-radius: 50%;
-                }
-            }
-            &__rating{
-                display: flex;
-                justify-content: end;
-                height: 38px;
-                margin-top: 10px;        
-            }
-        }
-    }
-        
-    .dropdowns{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 24px;
-    }
-}
-
-@media screen and (max-width: variables.$breakpoint-tablette) {
-    .container-pictures{
-        max-height: 330px;
-    }
-    .container{
-        .container-general{
-            flex-direction: column;     
-            .container-infos{
-                &__title{
-                    font-size: 30px;
-                }
-    
-                &__location{
-                    font-size: 16px;
-                }
-                &__tags{
-                    font-size: 13px;
-                }
-            }   
-            .container-host-rate{
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: space-between;
-                align-items: center;
-                
-                &__host{
-                    &__name{
-                        font-size: 15px;
-                        width: 60px;
-                    }
-                    &__picture{
+                    @media screen and (max-width: variables.$breakpoint-tablette) {
                         width: 55px;
                         height: 55px;
                         border-radius: 50%;
                     }
-                }
-                &__rating{
-                    height: 30px;
-                }
-            }
-        } 
-    }
-}
-
-@media screen and (max-width: variables.$breakpoint-mobile) {
-    .container-pictures{
-        max-height: 255px;
-    }
-    .container{ 
-        .container-general{    
-            .container-infos{
-                &__title{
-                    font-size: 18px;       
-                }
-    
-                &__location{
-                    font-size: 14px;
-                }
-                &__tags{
-                    font-size: 12px;
-                    height: 36px;
-                }
-            } 
-               
-            .container-host-rate{
-                &__host{
-                    &__name{
-                        font-size: 12px;
-                        width: 50px;
-                        padding-left: 0px;
-                    }
-                    &__picture{
+                    @media screen and (max-width: variables.$breakpoint-mobile) {
                         width: 50px;
                         height: 50px;
                         border-radius: 50%;
                     }
                 }
-                &__rating{
+
+            }
+            
+            &__rating{
+                display: flex;
+                justify-content: end;
+                height: 38px;
+                margin-top: 10px;  
+                
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    height: 30px;
+                }
+                @media screen and (max-width: variables.$breakpoint-mobile) {
                     height: 20px;
                 }
-            } 
+            
+            }
         }
-        .dropdowns{
+    }
+    .dropdowns{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+        
+        @media screen and (max-width: variables.$breakpoint-mobile) {
             flex-direction: column;
             margin-bottom: 20px;
         }

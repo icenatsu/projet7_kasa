@@ -3,11 +3,23 @@
 .banner{
     width: 100%;
     height: 223px;
-    margin: 63px auto 43px auto;
+    margin-bottom: 50px;
     min-width: 300px;
     max-height: 223px;
     border-radius: variables.$big-radius;
     position: relative;
+
+    @media screen and (max-width: variables.$breakpoint-tablette) {
+        max-height: 200px;
+    }
+
+    @media screen and (max-width: variables.$breakpoint-mobile) {
+    
+            border-radius: variables.$small-radius;
+            max-height: 111px;
+            margin: 40px auto 0px auto;
+            min-width: 270px;
+    }
 
     &__title{
         position: absolute;
@@ -20,6 +32,14 @@
         font-size: 39px;
         font-weight: 500;
         text-align: center;
+
+        @media screen and (max-width: variables.$breakpoint-tablette) {
+            font-size: 30px;
+        }
+
+        @media screen and (max-width: variables.$breakpoint-mobile) {
+            font-size: 24px;
+        }
     }
 
     &__background{
@@ -33,6 +53,10 @@
         background-size: cover;
         z-index: 1;
         opacity: 30%;
+
+        @media screen and (max-width: variables.$breakpoint-mobile) {        
+            border-radius: variables.$small-radius; 
+        }
     }
     
     & img{
@@ -42,35 +66,8 @@
         border-radius: variables.$big-radius;
         top: 0;
         z-index: -1;
-    }
-}
 
-@media screen and (max-width: variables.$breakpoint-tablette) {
-    .banner{
-        max-height: 200px;
-        margin: 40px auto 0px auto;
-        &__title{
-            font-size: 30px;
-        }
-    }
-}
-
-@media screen and (max-width: variables.$breakpoint-mobile) {
-    .banner{
-        border-radius: variables.$small-radius;
-        max-height: 111px;
-        margin: 40px auto 0px auto;
-        min-width: 270px;
-        
-        &__title{
-            font-size: 24px;
-        }
-
-        &__background{
-            border-radius: variables.$small-radius;
-        }
-        
-        & img{
+        @media screen and (max-width: variables.$breakpoint-mobile) {
             border-radius: variables.$small-radius;
         }
     }
