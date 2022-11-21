@@ -18,7 +18,7 @@ const AccommodationSheet = () => {
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        const response = await axios("/logements.json");
+        const response = await axios("/logement.json");
 
         const currentAccommodation = response.data.find(
           (accommodation) => accommodation.id === id
@@ -112,7 +112,7 @@ const AccommodationSheet = () => {
       </>
     );
   } else {
-    <ToastContainer />;
+    return <ToastContainer />;
   }
 };
 
