@@ -1,0 +1,17 @@
+@use '../../sass/utils/mixins';
+@use '../../sass/base/animations';
+
+.suspension {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+
+    .point {
+        font-size: 50px;
+        font-weight: bold;
+        letter-spacing: 30px;
+        animation: point 2s linear infinite;
+        @include mixins.loadingdelay(1, 3);
+    }    
+}

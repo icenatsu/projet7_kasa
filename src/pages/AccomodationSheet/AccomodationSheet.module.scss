@@ -3,7 +3,6 @@
 .container-pictures{
     border-radius: variables.$big-radius;
     overflow: hidden;
-    position: relative;
     margin-top: 20px;
     height: 415px;
     max-height: 415px;
@@ -12,8 +11,7 @@
         max-height: 330px;    
     }
     @media screen and (max-width: variables.$breakpoint-mobile) {
-    
-            max-height: 255px;    
+        max-height: 255px;    
     }
 }
 
@@ -58,8 +56,10 @@
 
             &__tags{
                 display: flex;
+                flex-wrap: wrap;
                 font-size: 14px;
                 font-weight: 500;
+                margin-bottom: 15px;
                     
                 @media screen and (max-width: variables.$breakpoint-tablette) {
                     font-size: 13px;
@@ -79,7 +79,11 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    margin-right: 10px;
+                    margin: 2px;  
+                    
+                    @media screen and (max-width: variables.$breakpoint-mobile) {
+                        height: 30px;   
+                    }
                 }
             }
         }
@@ -131,12 +135,10 @@
                         border-radius: 50%;
                     }
                 }
-
             }
             
             &__rating{
                 display: flex;
-                justify-content: end;
                 height: 38px;
                 margin-top: 10px;  
                 

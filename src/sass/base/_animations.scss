@@ -1,0 +1,42 @@
+@use '../utils/variables';
+
+@keyframes slideEffect{
+    0%{
+        transform: translateX(250px);  
+        transition: 1s;  
+        opacity: 0; 
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1; 
+    }
+}
+
+@keyframes slideEffect2{
+    0%{
+        transform: translateX(-250px);  
+        transition: 1s;   
+        opacity: 0; 
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1; 
+    }
+}
+
+@keyframes point {
+    0% {
+        color: variables.$primary-color;
+        text-shadow: 0 0 7px variables.$loading-color1;
+    }
+
+    90% {
+        color: variables.$loading-color1;
+        text-shadow: none;
+    }
+
+    100% {
+        color: variables.$loading-color2;
+        text-shadow: 0 0 7px variables.$primary-color;
+    }
+}

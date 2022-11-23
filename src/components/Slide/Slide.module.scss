@@ -1,16 +1,15 @@
 @use '../../sass/utils/variables';
+@use '../../sass/utils/mixins';
+@use '../../sass/base/animations';
 
 .container{
-    width: 100%;
-    height: 100%;
+    @include mixins.fullSize;
     position: relative;
 
     &__next-previous{
        
         &__prev{    
-            position: absolute;
-            top:50%;
-            transform: translateY(-50%);            
+            @include mixins.absoluteCenterY;       
             left:20px;
             z-index: 999;
             cursor: pointer;
@@ -23,10 +22,8 @@
             }
         }
         
-        &__next{  
-            position: absolute;
-            top:50%;
-            transform: translateY(-50%);              
+        &__next{ 
+            @include mixins.absoluteCenterY;            
             right:20px;
             z-index: 999;
             cursor: pointer;
@@ -40,22 +37,31 @@
         }
     }
 
-    &__slide{
-        opacity: 0;
+    &__img{
+        @include mixins.fullSize;
 
         & img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        &.active{
-            width: 100%;
-            height: 100%;
-            opacity: 1;
-            transition: 0.4s ease-in-out 0.1s;
+            position: absolute;
         }
     }
+    
+    &__slide{  
+        @include mixins.fullSizeCoverImg;
+        opacity: 0;  
+    }
+}
+
+.neutral{
+    @include mixins.fullSizeCoverImg;
+}
+.nextactive{
+    @include mixins.fullSizeCoverImg;
+    animation: slideEffect 1s forwards ;
+}
+
+.prevactive{
+    @include mixins.fullSizeCoverImg;
+    animation: slideEffect2 1s forwards ;
 }
 
 

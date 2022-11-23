@@ -12,7 +12,12 @@ const Menu = (props) => {
   };
 
   return (
-    <div className={styles[`menu-container__${props.dropdown}`]}>
+    <div
+      className={[
+        styles[`menu-container__${props.dropdown}`],
+        styles[props.col],
+      ].join(" ")}
+    >
       <div
         className={styles[`menu-container__${props.dropdown}__element`]}
         onClick={showContent}

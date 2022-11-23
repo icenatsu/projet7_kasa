@@ -1,9 +1,8 @@
 @use "../../sass/utils/variables";
+@use '../../sass/utils/mixins';
 
 header{
-    max-width: 1240px;
-    width: 95%;
-    margin: 3% auto;
+    @include mixins.largeScreen;
     display: flex;
     justify-content: space-between;
     align-items: center;
