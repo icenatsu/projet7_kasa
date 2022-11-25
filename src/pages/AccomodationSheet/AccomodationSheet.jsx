@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import styles from "pages/AccomodationSheet/AccomodationSheet.module.scss";
 import Slide from "components/Slide/Slide";
 import Menu from "components/Menu/Menu";
-import axios from "axios";
 import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
 import { ToastContainer, toast } from "react-toastify";
@@ -23,8 +22,10 @@ const AccommodationSheet = () => {
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        const response = await axios("/logements.json");
-        const currentAccommodation = response.data.find(
+        let fetchconfig = await fetch("/logements.json");
+        let response = Object.assign([], await fetchconfig.json());
+
+        const currentAccommodation = response.find(
           (accommodation) => accommodation.id === id
         );
         setState({

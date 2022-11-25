@@ -3,7 +3,6 @@ import styles from "pages/Home/Home.module.scss";
 import Card from "components/Card/Card";
 import Banner from "components/Banner/Banner";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "components/Loader/Loader";
@@ -17,9 +16,11 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios("/logements.json");
+        let fetchconfig = await fetch("/logements.json");
+        let response = Object.assign([], await fetchconfig.json());
+
         setState({
-          items: response.data,
+          items: response,
           loading: false,
         });
       } catch (e) {

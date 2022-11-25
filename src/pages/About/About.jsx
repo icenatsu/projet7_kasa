@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "pages/About/About.module.scss";
-import axios from "axios";
 import Banner from "components/Banner/Banner";
 import Menu from "components/Menu/Menu";
 
@@ -14,13 +13,14 @@ const About = () => {
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        const response = await axios("/dataabout.json");
+        let fetchconfig = await fetch("/dataabout.json");
+        let response = Object.assign([], await fetchconfig.json());
+
         setState({
-          items: response.data,
+          items: response,
           loading: false,
         });
       } catch (e) {
-        // toast.error("Le logement n'est pas disponible");
         setState((s) => ({ ...s, loading: false }));
       }
     };
@@ -28,14 +28,12 @@ const About = () => {
   }, []);
 
   const { items, loading } = state;
-  // console.log(state);
-  // console.log(state.items);
 
   return (
     <>
       <Banner />
       <div className={styles.dropdowns}>
-        {state.items.map((about, index) => {
+        {items.map((about, index) => {
           return (
             <Menu
               dropdown="menuAbout"
