@@ -29,8 +29,6 @@ const Slide = (props) => {
     toogle();
   }, []);
 
-  console.log(props.pictures.length);
-
   return (
     <div className={styles["slide"]}>
       {show ? (

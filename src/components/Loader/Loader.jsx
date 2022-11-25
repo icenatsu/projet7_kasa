@@ -3,10 +3,10 @@ import styles from "components/Loader/Loader.module.scss";
 
 const Loader = () => {
   return (
-    <div class={styles.suspension}>
-      <span class={styles.point}>.</span>
-      <span class={styles.point}>.</span>
-      <span class={styles.point}>.</span>
+    <div className={styles.suspension}>
+      <span className={styles.point}>.</span>
+      <span className={styles.point}>.</span>
+      <span className={styles.point}>.</span>
     </div>
   );
 };
