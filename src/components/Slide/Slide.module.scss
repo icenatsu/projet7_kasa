@@ -2,9 +2,10 @@
 @use '../../sass/utils/mixins';
 @use '../../sass/base/animations';
 
-.container{
-    @include mixins.fullSize;
+.slide{
     position: relative;
+    white-space: nowrap;
+
 
     &__next-previous{
        
@@ -37,31 +38,22 @@
         }
     }
 
-    &__img{
-        @include mixins.fullSize;
-
-        & img{
-            position: absolute;
+    &__content{
+        transition: 1s;
+        position: relative;
+        height: 415px;
+ 
+        &__item{ 
+            @include mixins.fullSize;
+            display: inline-block;
+        
+            & img{
+                @include mixins.fullSize;
+            }
         }
     }
-    
-    &__slide{  
-        @include mixins.fullSizeCoverImg;
-        opacity: 0;  
-    }
 }
 
-.neutral{
-    @include mixins.fullSizeCoverImg;
-}
-.nextactive{
-    @include mixins.fullSizeCoverImg;
-    animation: slideEffect 1s forwards ;
-}
 
-.prevactive{
-    @include mixins.fullSizeCoverImg;
-    animation: slideEffect2 1s forwards ;
-}
 
 

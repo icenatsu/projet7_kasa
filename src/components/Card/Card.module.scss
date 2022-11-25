@@ -5,9 +5,9 @@
     width: 340px;
     height: 340px;
     min-width: 340px;
-    border-radius: variables.$small-radius;
+    border-radius: variables.$medium-radius;
     color: white;
-    margin: 2%;
+    margin: 2% auto;
     display: flex;
     align-items: flex-end;
     position: relative; 
@@ -43,11 +43,11 @@
     &__layer {
         @include mixins.fullSize;
         background: variables.$linear-card;
-        border-radius: variables.$small-radius;
+        border-radius: variables.$medium-radius;
    
         img {
             @include mixins.fullSize;
-            border-radius: variables.$small-radius;
+            border-radius: variables.$medium-radius;
             object-fit: cover;
         }
     }

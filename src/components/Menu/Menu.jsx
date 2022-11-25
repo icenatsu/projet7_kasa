@@ -33,11 +33,13 @@ const Menu = (props) => {
       </div>
       <div
         className={cx(
-          styles[`menu-container__accommodation__content`],
+          styles[`menu-container__${props.dropdown}__content`],
           active && styles.active
         )}
       >
-        <p className={styles[`menu-container__accommodation__content__text`]}>
+        <p
+          className={styles[`menu-container__${props.dropdown}__content__text`]}
+        >
           {props.text}
         </p>
       </div>

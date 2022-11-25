@@ -1,31 +1,23 @@
 import React from "react";
 import styles from "components/Slide/Slide.module.scss";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import nextArrow from "assets/img/arrow_right.png";
 import previousArrow from "assets/img/arrow_left.png";
 
 const Slide = (props) => {
   const [show, setShow] = useState(false);
-  const [state, setState] = useState({
-    currImg: 0,
-    active: 0,
-  });
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextImg = () => {
-    setState({
-      currImg:
-        state.currImg === props.pictures.length - 1 ? 0 : state.currImg + 1,
-      active: 1,
-    });
-    // }
+    return setCurrentSlide(
+      currentSlide === props.pictures.length - 1 ? 0 : currentSlide + 1
+    );
   };
 
   const previousImg = () => {
-    setState({
-      currImg:
-        state.currImg === 0 ? props.pictures.length - 1 : state.currImg - 1,
-      active: -1,
-    });
+    return setCurrentSlide(
+      currentSlide === 0 ? props.pictures.length - 1 : currentSlide - 1
+    );
   };
 
   useEffect(() => {
@@ -37,53 +29,43 @@ const Slide = (props) => {
     toogle();
   }, []);
 
-  const actif = state.active;
-  function loadComponent(actif) {
-    switch (actif) {
-      case 1:
-        return styles["nextactive"];
+  console.log(props.pictures.length);
 
-      case -1:
-        return styles["prevactive"];
-
-      case 0:
-        return styles["neutral"];
-
-      default:
-        return styles["container__slide"];
-    }
-  }
   return (
-    <div className={styles["container"]}>
+    <div className={styles["slide"]}>
       {show ? (
-        <div className={styles["container__next-previous"]}>
+        <div className={styles["slide__next-previous"]}>
           <img
-            className={styles["container__next-previous__prev"]}
+            className={styles["slide__next-previous__prev"]}
             src={previousArrow}
             onClick={previousImg}
             alt="previous"
           />
           <img
-            className={styles["container__next-previous__next"]}
+            className={styles["slide__next-previous__next"]}
             src={nextArrow}
             onClick={nextImg}
             alt="next"
           />
         </div>
       ) : null}
-      <div className={styles["container__img"]}>
-        {props.pictures.map((slide, index) => {
+      <div
+        className={styles["slide__content"]}
+        style={{ transform: `translateX(${-currentSlide * 100}% )` }}
+      >
+        {props.pictures.map((picture, index) => {
           return (
-            <img
-              key={index}
-              className={
-                index === state.currImg
-                  ? loadComponent(actif)
-                  : styles["container__slide"]
-              }
-              src={slide}
-              alt="photo du logement"
-            />
+            <div className={styles["slide__content__item"]} key={index}>
+              {props.pictures.length === 1 ? (
+                <img
+                  src={picture}
+                  alt="illustration du logement"
+                  style={{ height: "auto" }}
+                />
+              ) : (
+                <img src={picture} alt="illustration du logement" />
+              )}
+            </div>
           );
         })}
       </div>

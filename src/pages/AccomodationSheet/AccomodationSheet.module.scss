@@ -2,10 +2,12 @@
 
 .container-pictures{
     border-radius: variables.$big-radius;
-    overflow: hidden;
-    margin-top: 20px;
-    height: 415px;
+    margin: 70px auto;
     max-height: 415px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 
     @media screen and (max-width: variables.$breakpoint-tablette) {
         max-height: 330px;    
@@ -73,7 +75,7 @@
                 &__item{
                     width: 140px;
                     height: 32px;
-                    border-radius: variables.$small-radius;
+                    border-radius: variables.$medium-radius;
                     background-color: variables.$primary-color;
                     color: white;
                     display: flex;

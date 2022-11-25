@@ -41,12 +41,12 @@ const AccommodationSheet = () => {
 
   const { items, loading } = state;
 
-  if (!state.loading) {
+  if (!loading) {
     if (state.items.length !== 0) {
       return (
         <>
           <div className={styles["container-pictures"]}>
-            <Slide pictures={state.items.pictures}></Slide>
+            <Slide pictures={items.pictures}></Slide>
           </div>
           <div className={styles.container}>
             <div className={styles["container-general"]}>
@@ -55,7 +55,7 @@ const AccommodationSheet = () => {
                   {state.items.title}
                 </h1>
                 <p className={styles["container-infos__location"]}>
-                  {state.items.location}
+                  {items.location}
                 </p>
                 <div className={styles["container-infos__tags"]}>
                   {state.items.tags.map((tag, index) => {
@@ -73,17 +73,17 @@ const AccommodationSheet = () => {
               <div className={styles["container-host-rate"]}>
                 <div className={styles["container-host-rate__host"]}>
                   <p className={styles["container-host-rate__host__name"]}>
-                    {state.items.host.name}
+                    {items.host.name}
                   </p>
                   <img
                     className={styles["container-host-rate__host__picture"]}
-                    src={state.items.host.picture}
+                    src={items.host.picture}
                     alt="présentation du logement"
                   ></img>
                 </div>
                 <div className={styles["container-host-rate__rating"]}>
                   {stars.map((rate) =>
-                    state.items.rating >= rate ? (
+                    items.rating >= rate ? (
                       <img
                         key={rate.toString()}
                         className={styles.star}
@@ -107,13 +107,13 @@ const AccommodationSheet = () => {
                 dropdown="accommodation"
                 col="menu_col_45"
                 title="Description"
-                text={state.items.description}
+                text={items.description}
               />
               <Menu
                 dropdown="accommodation"
                 col="menu_col_45"
                 title="Équipements"
-                text={state.items.equipments.map((equipments, index) => {
+                text={items.equipments.map((equipments, index) => {
                   return (
                     <div className={styles.equipments} key={index}>
                       {equipments}

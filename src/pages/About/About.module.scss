@@ -1,0 +1,13 @@
+@use '../../sass/utils/variables';
+
+.dropdowns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    
+    @media screen and (max-width: variables.$breakpoint-mobile) {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
