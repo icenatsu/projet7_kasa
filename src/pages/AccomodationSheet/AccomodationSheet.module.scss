@@ -1,11 +1,20 @@
 @use '../../sass/utils/variables';
 
 .container-pictures{
-    height: 415px;
-    border-radius: 25px;
+    border-radius: variables.$big-radius;
+    margin: 70px auto;
+    max-height: 415px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    position: relative;
-    margin-top: 20px;
+
+    @media screen and (max-width: variables.$breakpoint-tablette) {
+        max-height: 330px;    
+    }
+    @media screen and (max-width: variables.$breakpoint-mobile) {
+        max-height: 255px;    
+    }
 }
 
 .container{
@@ -13,105 +22,145 @@
     .container-general{
         display: flex;
         justify-content: space-between;
-
+        @media screen and (max-width: variables.$breakpoint-tablette) {
+            flex-direction: column;     
+        }
         .container-infos{
             display: flex;
             flex-direction: column;
             margin-top: 30px;
-
+            
             &__title{
                 font-size: 36px;
                 margin: 0;
                 width: 100%;
+                
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    font-size: 30px;
+                }
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    font-size: 18px;                       
+                }
             }
 
             &__location{
                 font-size: 18px;
-                margin: 0;
+                margin-top: 5px;
                 margin-bottom: 23px;
+                
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    font-size: 16px;
+                }
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    font-size: 14px;    
+                }
             }
 
             &__tags{
                 display: flex;
+                flex-wrap: wrap;
                 font-size: 14px;
                 font-weight: 500;
+                margin-bottom: 15px;
+                    
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    font-size: 13px;
+                }  
+                
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    font-size: 12px;
+                    height: 36px;   
+                }
 
                 &__item{
                     width: 140px;
                     height: 32px;
-                    border-radius: 10px;
+                    border-radius: variables.$medium-radius;
                     background-color: variables.$primary-color;
                     color: white;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    margin-right: 10px;
+                    margin: 2px;  
+                    
+                    @media screen and (max-width: variables.$breakpoint-mobile) {
+                        height: 30px;   
+                    }
                 }
             }
         }
 
         .container-host-rate{
             margin-top: 10px;
-            &__host{
-                display: flex;
-                padding-top: 10px;
-                justify-content: space-between;
-                &__name{
-                    font-size: 18px;
-                    font-weight: 500;
-                    margin-top: 10px;
-                    width: 70px;
-                    padding-left: 40px;
-
-                }
-                &__picture{
-                    width: 64px;
-                    height: 64px;
-                    border-radius: 50%;
-                }
-            }
-
-            &__rating{
-                display: flex;
-                font-size: 50px;
-                
-            }
-
-        }
-
-    }
-        
-    .dropdowns{
-        display: flex;
-        flex-direction: column;
-        height: 310px;
-        flex-wrap: wrap;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-}
-
-@media screen and (max-width: variables.$breakpoint-mobile) {
-    .container{
-    
-        .container-general{
-            display: flex;
-            flex-direction: column;
-     
-            .container-host-rate{
+            
+            @media screen and (max-width: variables.$breakpoint-tablette) {
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: space-between;
                 align-items: center;
             }
-        }
+
+            &__host{
+                display: flex;
+                padding-top: 10px;
+                justify-content: space-between;
+                
+                &__name{
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin-top: 10px;
+                    width: 95px;
+
+                    @media screen and (max-width: variables.$breakpoint-tablette) {
+                        font-size: 15px;
+                        width: 75px;
+                    }
+                    @media screen and (max-width: variables.$breakpoint-mobile) {
+                        font-size: 12px;
+                        width: 60px;
+                        padding-left: 0px;
+                    }
+                }
+
+                &__picture{
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    @media screen and (max-width: variables.$breakpoint-tablette) {
+                        width: 55px;
+                        height: 55px;
+                        border-radius: 50%;
+                    }
+                    @media screen and (max-width: variables.$breakpoint-mobile) {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                    }
+                }
+            }
             
-        .dropdowns{
-            display: flex;
+            &__rating{
+                display: flex;
+                height: 38px;
+                margin-top: 10px;  
+                
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    height: 30px;
+                }
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    height: 20px;
+                }
+            
+            }
+        }
+    }
+    .dropdowns{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+        
+        @media screen and (max-width: variables.$breakpoint-mobile) {
             flex-direction: column;
-            height: 600px;
-            flex-wrap: nowrap;
-            margin-top: 20px;
             margin-bottom: 20px;
         }
     }

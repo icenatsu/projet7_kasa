@@ -8,7 +8,7 @@ const Banner = (props) => {
   const bannerSrc = url ? BannerHome : BannerAbout;
   const bannerAlt = url
     ? "Photo de paysage côtier"
-    : "Photo de paysage Montagneux";
+    : "Photo de paysage de montagnes";
 
   return (
     <div className={styles.banner}>

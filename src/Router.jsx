@@ -11,10 +11,9 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Error />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
@@ -24,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "/acco/:id",
         element: <AccommodationSheet />,
+      },
+      {
+        path: "*",
+        element: <Error />,
       },
     ],
   },

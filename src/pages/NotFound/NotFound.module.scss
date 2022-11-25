@@ -11,6 +11,12 @@
         font-weight: 700;
         margin: 0;
         margin-top: 175px;
+        @media screen and (max-width: variables.$breakpoint-tablette) {
+            font-size: 192px;
+        }
+        @media screen and (max-width: variables.$breakpoint-mobile) {
+            font-size: 96px;
+        }
     }
 
     .text{
@@ -19,6 +25,14 @@
         margin: 0;
         margin-top: 66px;
         text-align: center;
+        @media screen and (max-width: variables.$breakpoint-tablette) {
+            font-size: 18px;
+            margin-top: 11px;
+        }
+        @media screen and (max-width: variables.$breakpoint-mobile) {
+            font-size: 18px;
+            margin-top: 11px;
+        }
     }
 
     .homeLink{
@@ -28,25 +42,17 @@
         margin-top: 182px;
         margin-bottom: 159px;
         text-decoration: underline;
-    }
-}
 
-@media screen and (max-width: variables.$breakpoint-mobile) {
-
-    .container{    
-        .statut{
-            font-size: 96px;
-        }
-    
-        .text{
-            font-size: 18px;
-            margin-top: 11px;
-        }
-    
-        .homeLink{
+        @media screen and (max-width: variables.$breakpoint-tablette) {
             font-size: 14px;
             margin-top: 135px;
-           
+        }
+        @media screen and (max-width: variables.$breakpoint-mobile) {
+            font-size: 14px;
+            margin-top: 135px;
         }
     }
 }
+
+
+

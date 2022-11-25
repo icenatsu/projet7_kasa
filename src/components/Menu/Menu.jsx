@@ -2,29 +2,47 @@ import React from "react";
 import styles from "components/Menu/Menu.module.scss";
 import arrow from "assets/img/arrow_back.svg";
 import { useState } from "react";
+import cx from "classnames";
 
 const Menu = (props) => {
-  const [show, setShow] = useState(true);
+  const [active, setActive] = useState(false);
 
   const showContent = () => {
-    setShow(!show);
+    setActive(!active);
   };
 
   return (
-    <div className={styles["menu-container"]}>
-      <div className={styles[`menu-container__${props.dropdown}`]}>
-        <p className={styles[`menu-container__${props.dropdown}__title`]}>
+    <div
+      className={[
+        styles[`menu-container__${props.dropdown}`],
+        styles[props.col],
+      ].join(" ")}
+    >
+      <div
+        className={styles[`menu-container__${props.dropdown}__element`]}
+        onClick={showContent}
+      >
+        <p
+          className={
+            styles[`menu-container__${props.dropdown}__element__title`]
+          }
+        >
           {props.title}
         </p>
-        <img src={arrow} alt="dropdown" onClick={showContent} />
+        <img src={arrow} alt="dropdown" className={active && styles.active} />
       </div>
-      {show ? (
-        <div className={styles[`menu-container__content`]}>
-          <div className={styles[`menu-container__content__text`]}>
-            {props.text}
-          </div>
-        </div>
-      ) : null}
+      <div
+        className={cx(
+          styles[`menu-container__${props.dropdown}__content`],
+          active && styles.active
+        )}
+      >
+        <p
+          className={styles[`menu-container__${props.dropdown}__content__text`]}
+        >
+          {props.text}
+        </p>
+      </div>
     </div>
   );
 };
