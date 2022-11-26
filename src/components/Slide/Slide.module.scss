@@ -5,6 +5,7 @@
 .slide{
     position: relative;
     white-space: nowrap;
+    @include mixins.fullSize;
 
 
     &__next-previous{

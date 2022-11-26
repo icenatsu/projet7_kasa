@@ -58,7 +58,7 @@ const Slide = (props) => {
                 <img
                   src={picture}
                   alt="illustration du logement"
-                  style={{ height: "auto" }}
+                  // style={{ height: "auto" }}
                 />
               ) : (
                 <img src={picture} alt="illustration du logement" />
