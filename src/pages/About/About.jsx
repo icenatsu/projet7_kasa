@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "pages/About/About.module.scss";
-import axios from "axios";
 import Banner from "components/Banner/Banner";
 import Menu from "components/Menu/Menu";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loader from "components/Loader/Loader";
 
 const About = () => {
   const [state, setState] = useState({
@@ -14,13 +16,15 @@ const About = () => {
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        const response = await axios("/dataabout.json");
+        let fetchconfig = await fetch("/dataabout.json");
+        let response = Object.assign([], await fetchconfig.json());
+
         setState({
-          items: response.data,
+          items: response,
           loading: false,
         });
       } catch (e) {
-        // toast.error("Le logement n'est pas disponible");
+        toast.error("Les informations ne sont pas disponibles");
         setState((s) => ({ ...s, loading: false }));
       }
     };
@@ -28,26 +32,34 @@ const About = () => {
   }, []);
 
   const { items, loading } = state;
-  // console.log(state);
-  // console.log(state.items);
 
-  return (
-    <>
-      <Banner />
-      <div className={styles.dropdowns}>
-        {state.items.map((about, index) => {
-          return (
-            <Menu
-              dropdown="menuAbout"
-              col="menu_col_80"
-              title={about.title}
-              text={about.text}
-            />
-          );
-        })}
-      </div>
-    </>
-  );
+  if (!loading) {
+    if (items.length !== 0) {
+      return (
+        <>
+          <Banner />
+          <div className={styles.dropdowns}>
+            {items.map((about, index) => {
+              return (
+                <Menu
+                  dropdown="menuAbout"
+                  col="menu_col_80"
+                  title={about.title}
+                  text={about.text}
+                  key={index}
+                  style={{ borderRadius: `${5}px` }}
+                />
+              );
+            })}
+          </div>
+        </>
+      );
+    } else {
+      return <ToastContainer />;
+    }
+  } else {
+    return <Loader />;
+  }
 };
 
 export default About;

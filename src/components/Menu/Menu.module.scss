@@ -3,14 +3,15 @@
 
 .menu-container{
     &__accommodation, &__menuAbout{    
-        margin-top: 2%;   
+        margin-top: 2%;  
+
         @media screen and (max-width: variables.$breakpoint-mobile) {      
             width: 100%;
             margin-bottom: 10px;
         }
 
         &__element{
-            border-radius: variables.$small-radius;
+            // border-radius: variables.$medium-radius;
             background-color: variables.$primary-color;
             display: flex;
             justify-content: space-between;
@@ -57,7 +58,7 @@
             display: none; 
             color: variables.$primary-color;
             background-color: #F6F6F6;
-            border-radius: variables.$small-radius;
+            // border-radius: variables.$small-radius;
             margin-top: -15px;
             z-index: -999;
 

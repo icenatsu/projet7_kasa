@@ -2,7 +2,7 @@
 
 .container-pictures{
     border-radius: variables.$big-radius;
-    margin: 70px auto;
+    margin: 40px auto 20px auto;
     max-height: 415px;
     display: flex;
     align-items: center;
@@ -69,7 +69,6 @@
                 
                 @media screen and (max-width: variables.$breakpoint-mobile) {
                     font-size: 12px;
-                    height: 36px;   
                 }
 
                 &__item{
@@ -85,19 +84,24 @@
                     
                     @media screen and (max-width: variables.$breakpoint-mobile) {
                         height: 30px;   
+                        width: 120px;
                     }
                 }
             }
         }
 
         .container-host-rate{
-            margin-top: 10px;
+            margin-top: 20px;
             
             @media screen and (max-width: variables.$breakpoint-tablette) {
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: space-between;
                 align-items: center;
+            }
+
+            @media screen and (max-width: variables.$breakpoint-mobile) {
+                margin-top: 0;
             }
 
             &__host{

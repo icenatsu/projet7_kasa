@@ -5,6 +5,7 @@
 .slide{
     position: relative;
     white-space: nowrap;
+    @include mixins.fullSize;
 
 
     &__next-previous{
@@ -49,6 +50,10 @@
         
             & img{
                 @include mixins.fullSize;
+
+                @media screen and (max-width: variables.$breakpoint-tablette) {
+                    object-fit: cover;
+                }
             }
         }
     }

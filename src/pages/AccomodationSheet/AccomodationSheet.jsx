@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import styles from "pages/AccomodationSheet/AccomodationSheet.module.scss";
 import Slide from "components/Slide/Slide";
 import Menu from "components/Menu/Menu";
-import axios from "axios";
 import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
 import { ToastContainer, toast } from "react-toastify";
@@ -23,8 +22,10 @@ const AccommodationSheet = () => {
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        const response = await axios("/logements.json");
-        const currentAccommodation = response.data.find(
+        let fetchconfig = await fetch("/logements.json");
+        let response = Object.assign([], await fetchconfig.json());
+
+        const currentAccommodation = response.find(
           (accommodation) => accommodation.id === id
         );
         setState({
@@ -42,7 +43,7 @@ const AccommodationSheet = () => {
   const { items, loading } = state;
 
   if (!loading) {
-    if (state.items.length !== 0) {
+    if (items.length !== 0) {
       return (
         <>
           <div className={styles["container-pictures"]}>
@@ -108,11 +109,13 @@ const AccommodationSheet = () => {
                 col="menu_col_45"
                 title="Description"
                 text={items.description}
+                style={{ borderRadius: `${10}px` }}
               />
               <Menu
                 dropdown="accommodation"
                 col="menu_col_45"
                 title="Équipements"
+                style={{ borderRadius: `${10}px` }}
                 text={items.equipments.map((equipments, index) => {
                   return (
                     <div className={styles.equipments} key={index}>
