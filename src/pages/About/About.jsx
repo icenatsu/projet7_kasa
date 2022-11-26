@@ -47,6 +47,7 @@ const About = () => {
                   title={about.title}
                   text={about.text}
                   key={index}
+                  style={{ borderRadius: `${5}px` }}
                 />
               );
             })}

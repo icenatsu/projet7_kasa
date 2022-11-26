@@ -109,11 +109,13 @@ const AccommodationSheet = () => {
                 col="menu_col_45"
                 title="Description"
                 text={items.description}
+                style={{ borderRadius: `${10}px` }}
               />
               <Menu
                 dropdown="accommodation"
                 col="menu_col_45"
                 title="Équipements"
+                style={{ borderRadius: `${10}px` }}
                 text={items.equipments.map((equipments, index) => {
                   return (
                     <div className={styles.equipments} key={index}>
