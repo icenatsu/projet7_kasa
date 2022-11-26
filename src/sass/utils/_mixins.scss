@@ -1,8 +1,13 @@
+@use '../../sass/utils/variables';
+
 @mixin largeScreen {
-    max-width: 1240px;
+    max-width: variables.$maxWidth;
+    width: 95%;
     margin: 3% auto;
-    padding: 0 3%;
+    // margin: 3% auto;
+    // padding: 0 3%;
 }
+// Voir avec Wyona..
 
 @mixin fullSizeCoverImg{
     width: 100%;

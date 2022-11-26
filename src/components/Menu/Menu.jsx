@@ -19,9 +19,9 @@ const Menu = ({ dropdown, col, text, title, style }) => {
         onClick={showContent}
         style={style}
       >
-        <p className={styles[`menu-container__${dropdown}__element__title`]}>
+        <h2 className={styles[`menu-container__${dropdown}__element__title`]}>
           {title}
-        </p>
+        </h2>
         <img src={arrow} alt="dropdown" className={active && styles.active} />
       </div>
       <div
