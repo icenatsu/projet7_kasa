@@ -23,7 +23,7 @@ const AccommodationSheet = () => {
     const fetchDatas = async () => {
       try {
         let fetchconfig = await fetch("/logements.json");
-        let response = Object.assign([], await fetchconfig.json());
+        let response = await fetchconfig.json();
 
         const currentAccommodation = response.find(
           (accommodation) => accommodation.id === id

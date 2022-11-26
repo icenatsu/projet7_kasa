@@ -17,7 +17,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         let fetchconfig = await fetch("/logements.json");
-        let response = Object.assign([], await fetchconfig.json());
+        let response = await fetchconfig.json();
 
         setState({
           items: response,
