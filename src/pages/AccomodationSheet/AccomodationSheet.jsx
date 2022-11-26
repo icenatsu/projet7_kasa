@@ -43,7 +43,7 @@ const AccommodationSheet = () => {
   const { items, loading } = state;
 
   if (!loading) {
-    if (state.items.length !== 0) {
+    if (items.length !== 0) {
       return (
         <>
           <div className={styles["container-pictures"]}>
