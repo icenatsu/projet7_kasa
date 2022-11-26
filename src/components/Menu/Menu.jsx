@@ -22,7 +22,11 @@ const Menu = ({ dropdown, col, text, title, style }) => {
         <h2 className={styles[`menu-container__${dropdown}__element__title`]}>
           {title}
         </h2>
-        <img src={arrow} alt="dropdown" className={active && styles.active} />
+        <img
+          src={arrow}
+          alt="dropdown"
+          className={active ? styles.active : ""}
+        />
       </div>
       <div
         className={[
@@ -31,9 +35,9 @@ const Menu = ({ dropdown, col, text, title, style }) => {
         ].join(" ")}
         style={style}
       >
-        <p className={styles[`menu-container__${dropdown}__content__text`]}>
+        <div className={styles[`menu-container__${dropdown}__content__text`]}>
           {text}
-        </p>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "pages/About/About.module.scss";
 import Banner from "components/Banner/Banner";
 import Menu from "components/Menu/Menu";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import Loader from "components/Loader/Loader";
 
 const About = () => {
@@ -12,6 +13,7 @@ const About = () => {
     items: [],
     loading: true,
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDatas = async () => {
@@ -24,7 +26,8 @@ const About = () => {
           loading: false,
         });
       } catch (e) {
-        toast.error("Les informations ne sont pas disponibles");
+        navigate("*");
+        // toast.error("Les informations ne sont pas disponibles");
         setState((s) => ({ ...s, loading: false }));
       }
     };
@@ -54,9 +57,10 @@ const About = () => {
           </div>
         </>
       );
-    } else {
-      return <ToastContainer />;
     }
+    // else {
+    //   return <ToastContainer />;
+    // }
   } else {
     return <Loader />;
   }

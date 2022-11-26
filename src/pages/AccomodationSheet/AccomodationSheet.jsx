@@ -1,18 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "pages/AccomodationSheet/AccomodationSheet.module.scss";
 import Slide from "components/Slide/Slide";
 import Menu from "components/Menu/Menu";
 import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import Loader from "components/Loader/Loader";
 import "react-toastify/dist/ReactToastify.css";
 
 const AccommodationSheet = () => {
   const { id } = useParams();
   const stars = [1, 2, 3, 4, 5];
+  const navigate = useNavigate();
 
   const [state, setState] = useState({
     items: [],
@@ -33,7 +34,8 @@ const AccommodationSheet = () => {
           loading: false,
         });
       } catch (e) {
-        toast.error("Le logement n'est pas disponible");
+        navigate("*");
+        // toast.error("Le logement n'est pas disponible");
         setState((s) => ({ ...s, loading: false }));
       }
     };
@@ -128,9 +130,10 @@ const AccommodationSheet = () => {
           </div>
         </>
       );
-    } else {
-      return <ToastContainer />;
     }
+    // else {
+    //   return <ToastContainer />;
+    // }
   } else {
     return <Loader />;
   }

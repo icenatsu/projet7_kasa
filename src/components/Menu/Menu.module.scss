@@ -4,7 +4,7 @@
 .menu-container{
     &__accommodation, &__menuAbout{    
         margin-top: 2%;  
-
+  
         @media screen and (max-width: variables.$breakpoint-mobile) {      
             width: 100%;
             margin-bottom: 10px;
@@ -54,9 +54,12 @@
         }
 
         &__content{
-            display: none; 
+            transition: opacity 1s ease-out;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
             color: variables.$primary-color;
-            background-color: #F6F6F6;
+            background-color: variables.$fourth-color;
             margin-top: -15px;
             z-index: -999;
 
@@ -75,8 +78,9 @@
         }
 
         .active {
-            display: block;   
-            transform: rotate(0deg);        
+            opacity: 1;
+            height: auto;
+            transform: rotate(0deg);       
         }
     }
 }

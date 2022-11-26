@@ -1,29 +1,5 @@
 @use '../utils/variables';
 
-@keyframes slideEffect{
-    0%{
-        transform: translateX(250px);  
-        transition: 1s;  
-        opacity: 0; 
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 1; 
-    }
-}
-
-@keyframes slideEffect2{
-    0%{
-        transform: translateX(-250px);  
-        transition: 1s;   
-        opacity: 0; 
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 1; 
-    }
-}
-
 @keyframes point {
     0% {
         color: variables.$primary-color;
