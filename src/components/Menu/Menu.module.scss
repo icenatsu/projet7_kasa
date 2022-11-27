@@ -45,19 +45,16 @@
                 margin-right: 10px;
 
                 @media screen and (max-width: variables.$breakpoint-tablette) {
-                    height: 17px;
+                    height: 22px;
                 }
                 @media screen and (max-width: variables.$breakpoint-mobile) {
-                    height: 15px;
+                    height: 18px;
                 }
             }
         }
 
         &__content{
-            transition: opacity 1s ease-out;
-            opacity: 0;
-            height: 0;
-            overflow: hidden;
+            display: none;
             color: variables.$primary-color;
             background-color: variables.$fourth-color;
             margin-top: -15px;
@@ -78,8 +75,7 @@
         }
 
         .active {
-            opacity: 1;
-            height: auto;
+            display: block;
             transform: rotate(0deg);       
         }
     }

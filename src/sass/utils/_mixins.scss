@@ -2,8 +2,10 @@
 
 @mixin largeScreen {
     max-width: variables.$maxWidth;
-    width: 95%;
-    margin: 3% auto;
+    // width: 95%;
+    margin: 20px auto;
+    padding: 0 20px;
+
     // margin: 3% auto;
     // padding: 0 3%;
 }
@@ -36,8 +38,7 @@
 @mixin loadingdelay($delay, $number){
     @for $i from 0 to $number{
         &:nth-child(#{$i+1}){
-            -webkit-animation-delay: #{$delay + 0.1s};
-                    animation-delay: #{$delay + 0.1s};
+            animation-delay: #{$delay + 0.1s};
             $delay: $delay + 0.1;
         }
     }
