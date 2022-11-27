@@ -9,6 +9,7 @@
     90% {
         color: variables.$loading-color1;
         text-shadow: none;
+        transform: scale(1.2);
     }
 
     100% {

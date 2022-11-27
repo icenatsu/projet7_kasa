@@ -1,3 +1,4 @@
+@use '../../sass/utils/variables';
 @use '../../sass/utils/mixins';
 @use '../../sass/base/animations';
 
@@ -8,9 +9,10 @@
     justify-content: center;
 
     .point {
-        font-size: 50px;
+        font-size: 70px;
         font-weight: bold;
-        letter-spacing: 30px;
+        color: variables.$primary-color;
+        letter-spacing: 40px;
         animation: point 2s linear infinite;
         @include mixins.loadingdelay(1, 3);
     }    
