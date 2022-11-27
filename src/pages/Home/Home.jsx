@@ -3,9 +3,8 @@ import styles from "pages/Home/Home.module.scss";
 import Card from "components/Card/Card";
 import Banner from "components/Banner/Banner";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Loader from "components/Loader/Loader";
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
     items: [],
     loading: true,
   });
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +24,7 @@ const Home = () => {
           loading: false,
         });
       } catch (e) {
-        navigate("*");
-        // toast.error("Les logements ne sont pas disponibles");
+        toast.error("Les logements ne sont pas disponibles");
         setState((state) => ({ ...state, loading: false }));
       }
     };
@@ -53,10 +50,9 @@ const Home = () => {
           </div>
         </>
       );
+    } else {
+      return <ToastContainer />;
     }
-    // else {
-    //   return <ToastContainer />;
-    // }
   } else {
     return <Loader />;
   }

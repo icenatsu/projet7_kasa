@@ -6,7 +6,7 @@ import Slide from "components/Slide/Slide";
 import Menu from "components/Menu/Menu";
 import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
-// import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import Loader from "components/Loader/Loader";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -29,13 +29,15 @@ const AccommodationSheet = () => {
         const currentAccommodation = response.find(
           (accommodation) => accommodation.id === id
         );
+        if (currentAccommodation === undefined) {
+          navigate("*");
+        }
         setState({
           items: currentAccommodation,
           loading: false,
         });
       } catch (e) {
-        navigate("*");
-        // toast.error("Le logement n'est pas disponible");
+        toast.error("Le logement n'est pas disponible");
         setState((s) => ({ ...s, loading: false }));
       }
     };
@@ -130,10 +132,9 @@ const AccommodationSheet = () => {
           </div>
         </>
       );
+    } else {
+      return <ToastContainer />;
     }
-    // else {
-    //   return <ToastContainer />;
-    // }
   } else {
     return <Loader />;
   }
