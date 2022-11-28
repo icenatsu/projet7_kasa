@@ -3,59 +3,71 @@ import styles from "pages/Home/Home.module.scss";
 import Card from "components/Card/Card";
 import Banner from "components/Banner/Banner";
 import { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Loader from "components/Loader/Loader";
+import Modal from "components/Modal/Modal";
 
 const Home = () => {
-  const [state, setState] = useState({
-    items: [],
-    loading: true,
-  });
+  function useFetchdatas() {
+    const [state, setState] = useState({
+      items: [],
+      loading: true,
+      modal: false,
+    });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let fetchconfig = await fetch("/logements.json");
-        let response = await fetchconfig.json();
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          let fetchconfig = await fetch("/logements.json");
+          let response = await fetchconfig.json();
 
-        setState({
-          items: response,
-          loading: false,
-        });
-      } catch (e) {
-        toast.error("Les logements ne sont pas disponibles");
-        setState((state) => ({ ...state, loading: false }));
-      }
-    };
-    fetchData();
-  }, []);
+          setState({
+            items: response,
+            loading: false,
+          });
+        } catch (e) {
+          setState((state) => ({ ...state, loading: false, modal: true }));
+        }
+      };
+      fetchData();
+    }, []);
+    return [state.items, state.loading, state.modal];
+  }
 
-  const { items, loading } = state;
+  useFetchdatas();
 
-  if (!loading) {
-    if (items.length !== 0) {
-      return (
-        <>
-          <Banner title="Chez vous, partout et ailleurs" />
-          <div className={styles.container}>
-            {items.map((accos, index) => (
-              <Card
-                title={accos.title}
-                cover={accos.cover}
-                id={accos.id}
-                key={index}
-              />
-            ))}
-          </div>
-        </>
-      );
-    } else {
-      return <ToastContainer />;
-    }
-  } else {
+  const [items, loading, modal] = useFetchdatas();
+
+  if (loading) {
     return <Loader />;
   }
+
+  if (modal) {
+    return (
+      <>
+        <Modal
+          isShowing={modal}
+          title="Erreur de chargement.."
+          text="Les logements ne sont pas disponibles"
+        ></Modal>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Banner title="Chez vous, partout et ailleurs" />
+      <div className={styles.container}>
+        {items.map((accos, index) => (
+          <Card
+            title={accos.title}
+            cover={accos.cover}
+            id={accos.id}
+            key={index}
+          />
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default Home;

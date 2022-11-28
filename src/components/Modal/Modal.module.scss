@@ -1,0 +1,102 @@
+@use '../../sass/utils/variables';
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    // border: 1px solid blue;
+    border-radius: 10px;
+
+    .modal {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 20%;
+        color: white;
+        border-radius: 5px;
+        max-width: 400px;
+        width: 80%;
+        padding: 1rem;
+
+        &__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 2rem;
+        }
+        &__title{
+            font-size: 1.8rem;
+            
+            @media screen and (max-width: variables.$breakpoint-tablette) { 
+                font-size: 1.5rem;
+            }
+            @media screen and (max-width: variables.$breakpoint-mobile) {
+                font-size: 1.2rem;
+            }
+        }
+
+        &__close-button{
+            font-weight: 700;
+            color:green;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+
+            & span{
+                font-size: 2rem;
+                border: 1px solid green;
+                border-radius: 50%;
+                padding: 0px 5px;
+                background-color: white;
+            }
+        }
+
+        &__body{
+
+            &__text{
+                margin-top: 3px;
+                font-size: 1.5rem;
+                
+                @media screen and (max-width: variables.$breakpoint-tablette) { 
+                    font-size: 1.2rem;
+                }
+                @media screen and (max-width: variables.$breakpoint-mobile) {
+                    font-size: 1rem;
+                }
+            }
+
+            &__progress-bar{
+                margin-top: 12px;
+                border: 1px solid white;
+                height: 15px;
+                width: 100%;
+                overflow: hidden;   
+                background-color: white;             
+                &__bar{
+                    animation: progress 3s linear both;
+                    height: 100%;
+                    width: 100%;
+                    
+                }
+            }
+        }
+    }
+}
+
+@keyframes progress{
+    0%{
+        transform-origin: right 50%;
+        transform: translateX(400px);
+        background-color: blueviolet;
+        // transition: transform 10ms;
+    }
+    100%{
+        background-color: red;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+  

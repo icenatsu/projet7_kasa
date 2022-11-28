@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "components/Menu/Menu.module.scss";
+import styles from "components/Accordion/Accordion.module.scss";
 import arrow from "assets/img/arrow_back.svg";
 import { useState } from "react";
 
-const Menu = ({ dropdown, col, text, title, style }) => {
+const Accordion = ({ page, classList, text, title, style }) => {
   const [active, setActive] = useState(false);
 
   const showContent = () => {
@@ -12,14 +12,14 @@ const Menu = ({ dropdown, col, text, title, style }) => {
 
   return (
     <div
-      className={[styles[`menu-container__${dropdown}`], styles[col]].join(" ")}
+      className={[styles[`container__${page}`], styles[classList]].join(" ")}
     >
       <div
-        className={styles[`menu-container__${dropdown}__element`]}
+        className={styles[`container__${page}__element`]}
         onClick={showContent}
         style={style}
       >
-        <h2 className={styles[`menu-container__${dropdown}__element__title`]}>
+        <h2 className={styles[`container__${page}__element__title`]}>
           {title}
         </h2>
         <img
@@ -30,12 +30,12 @@ const Menu = ({ dropdown, col, text, title, style }) => {
       </div>
       <div
         className={[
-          styles[`menu-container__${dropdown}__content`],
+          styles[`container__${page}__content`],
           active && styles.active,
         ].join(" ")}
         style={style}
       >
-        <div className={styles[`menu-container__${dropdown}__content__text`]}>
+        <div className={styles[`container__${page}__content__text`]}>
           {text}
         </div>
       </div>
@@ -43,4 +43,4 @@ const Menu = ({ dropdown, col, text, title, style }) => {
   );
 };
 
-export default Menu;
+export default Accordion;

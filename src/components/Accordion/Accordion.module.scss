@@ -1,8 +1,8 @@
 @use '../../sass/utils/variables';
 @use '../../sass/utils/framework';
 
-.menu-container{
-    &__accommodation, &__menuAbout{    
+.container{
+    &__houseDetails, &__about{    
         margin-top: 2%;  
   
         @media screen and (max-width: variables.$breakpoint-mobile) {      
