@@ -17,3 +17,32 @@
         text-shadow: 0 0 7px variables.$primary-color;
     }
 }
+
+@keyframes shakeBox{
+    0%{
+        transform: translateX(-5px);
+    }
+    25%{
+        transform: translateX(5px);
+    }
+    50%{
+        transform: translateX(-5px);
+    }
+    100%{
+        transform: translateX(5px);
+    }
+}
+
+@keyframes progress{
+    0%{
+        transform-origin: right 50%;
+        background-color: blueviolet;
+    }
+    50%{
+        background-color: variables.$primary-color;
+    }
+    100%{
+        background-color: red;
+        transform: translateX(0);
+    }
+}

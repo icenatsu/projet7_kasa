@@ -1,11 +1,11 @@
 @use '../../sass/utils/variables';
+@use '../../sass/base/animations';
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
-    // border: 1px solid blue;
+    height:30vh;
     border-radius: 10px;
 
     .modal {
@@ -16,6 +16,7 @@
         max-width: 400px;
         width: 80%;
         padding: 1rem;
+        animation: shakeBox 0.3s ease 5.7s ;
 
         &__header{
             display: flex;
@@ -51,11 +52,10 @@
         }
 
         &__body{
-
             &__text{
                 margin-top: 3px;
                 font-size: 1.5rem;
-                
+
                 @media screen and (max-width: variables.$breakpoint-tablette) { 
                     font-size: 1.2rem;
                 }
@@ -72,26 +72,12 @@
                 overflow: hidden;   
                 background-color: white;             
                 &__bar{
-                    animation: progress 3s linear both;
+                    animation: progress 6s linear both;
                     height: 100%;
-                    width: 100%;
-                    
+                    width: 100%;                
                 }
             }
         }
-    }
-}
-
-@keyframes progress{
-    0%{
-        transform-origin: right 50%;
-        transform: translateX(400px);
-        background-color: blueviolet;
-        // transition: transform 10ms;
-    }
-    100%{
-        background-color: red;
-        transform: scale(1);
     }
 }
 

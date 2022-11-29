@@ -32,7 +32,6 @@ const Home = () => {
     }, []);
     return [state.items, state.loading, state.modal];
   }
-
   useFetchdatas();
 
   const [items, loading, modal] = useFetchdatas();
@@ -44,6 +43,7 @@ const Home = () => {
   if (modal) {
     return (
       <>
+        <Banner title="Chez vous, partout et ailleurs" />
         <Modal
           isShowing={modal}
           title="Erreur de chargement.."

@@ -39,7 +39,7 @@ const About = () => {
   useFetchdatas();
 
   const [items, loading, modal] = useFetchdatas();
-  console.log(modal);
+
   if (loading) {
     return <Loader />;
   }
