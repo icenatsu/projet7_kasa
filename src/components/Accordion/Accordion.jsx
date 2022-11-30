@@ -4,6 +4,8 @@ import arrow from "assets/img/arrow_back.svg";
 import { useState } from "react";
 
 const Accordion = ({ page, classList, text, title, style }) => {
+  // Gestion de l'affichage de l'accordion
+  /****************************************/
   const [active, setActive] = useState(false);
 
   const showContent = () => {

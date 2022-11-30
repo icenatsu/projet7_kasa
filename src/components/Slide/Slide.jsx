@@ -1,24 +1,31 @@
 import React from "react";
 import styles from "components/Slide/Slide.module.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import nextArrow from "assets/img/arrow_right.png";
 import previousArrow from "assets/img/arrow_left.png";
 
 const Slide = ({ pictures }) => {
+  // Gestion de l'état de l'image courante
+  // en fonction des boutons next ou slide
+  /********************************************/
+  const [currentSlide, dispatch] = useReducer(reducer, 0);
+
+  function reducer(state, action) {
+    switch (action.type) {
+      case "next":
+        return state === pictures.length - 1 ? 0 : state + 1;
+      case "prev":
+        return state === 0 ? pictures.length - 1 : state - 1;
+
+      default:
+        throw new Error("L'action" + action.type + " est inconnue.");
+    }
+  }
+
+  // Gestion de la visibilités des boutons next et slide
+  // en fonction du nombre d'images (si pas plus d'une image)
+  /***********************************************************/
   const [show, setShow] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextImg = () => {
-    return setCurrentSlide(
-      currentSlide === pictures.length - 1 ? 0 : currentSlide + 1
-    );
-  };
-
-  const previousImg = () => {
-    return setCurrentSlide(
-      currentSlide === 0 ? pictures.length - 1 : currentSlide - 1
-    );
-  };
 
   useEffect(() => {
     const toogle = () => {
@@ -36,13 +43,13 @@ const Slide = ({ pictures }) => {
           <img
             className={styles["slide__next-previous__prev"]}
             src={previousArrow}
-            onClick={previousImg}
+            onClick={() => dispatch({ type: "prev" })}
             alt="previous"
           />
           <img
             className={styles["slide__next-previous__next"]}
             src={nextArrow}
-            onClick={nextImg}
+            onClick={() => dispatch({ type: "next" })}
             alt="next"
           />
         </div>

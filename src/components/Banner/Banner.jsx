@@ -4,11 +4,28 @@ import BannerHome from "assets/img/home_bann.png";
 import BannerAbout from "assets/img/about_bann.png";
 
 const Banner = ({ title }) => {
-  const url = document.location.pathname === "/";
-  const bannerSrc = url ? BannerHome : BannerAbout;
-  const bannerAlt = url
-    ? "Photo de paysage côtier"
-    : "Photo de paysage de montagnes";
+  // Récupérationn du pathname de la page
+  /**************************************/
+  const pathname = document.location.pathname;
+
+  // Initialisation src et alt de l'image de la banière
+  /****************************************************/
+  let bannerSrc = "";
+  let bannerAlt = "";
+
+  // Switch de la gestion des images de la banière en fonction des pages
+  /*********************************************************************/
+  switch (pathname) {
+    case "/":
+      bannerSrc = BannerHome;
+      bannerAlt = "Photo de paysage côtier";
+      break;
+
+    case "/about":
+      bannerSrc = BannerAbout;
+      bannerAlt = "Photo de paysage de montagnes";
+      break;
+  }
 
   return (
     <div className={styles.banner}>

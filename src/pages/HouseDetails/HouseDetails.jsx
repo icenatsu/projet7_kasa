@@ -10,8 +10,13 @@ import Loader from "components/Loader/Loader";
 import Modal from "components/Modal/Modal";
 
 const HouseDetails = () => {
+  // Tableau des rates
+  /*******************/
   const stars = [1, 2, 3, 4, 5];
 
+  // Gestion de fetch
+  // Temps de chargement, récupération des données et modale si erreur
+  /********************************************************************/
   function useFetchdatas() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -25,7 +30,7 @@ const HouseDetails = () => {
     useEffect(() => {
       const fetchDatas = async () => {
         try {
-          let fetchconfig = await fetch("/logements.json");
+          let fetchconfig = await fetch("/logement.json");
           let response = await fetchconfig.json();
 
           const currentAccommodation = response.find(
@@ -43,12 +48,14 @@ const HouseDetails = () => {
         }
       };
       fetchDatas();
-    }, []);
+    }, [id, navigate]);
 
     return [state.items, state.loading, state.modal];
   }
   useFetchdatas();
 
+  // Récupération des états
+  /************************/
   const [items, loading, modal] = useFetchdatas();
 
   if (loading) {
@@ -57,13 +64,11 @@ const HouseDetails = () => {
 
   if (modal) {
     return (
-      <>
-        <Modal
-          isShowing={modal}
-          title="Erreur de chargement.."
-          text="Le logement n'est pas disponible"
-        ></Modal>
-      </>
+      <Modal
+        isShowing={modal}
+        title="Erreur de chargement.."
+        text="Le logement n'est pas disponible"
+      ></Modal>
     );
   }
 

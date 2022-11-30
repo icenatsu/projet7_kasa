@@ -7,6 +7,9 @@ import Loader from "components/Loader/Loader";
 import Modal from "components/Modal/Modal";
 
 const Home = () => {
+  // Gestion de fetch
+  // Temps de chargement, récupération des données et modale si erreur
+  /*******************************************************************/
   function useFetchdatas() {
     const [state, setState] = useState({
       items: [],
@@ -34,6 +37,8 @@ const Home = () => {
   }
   useFetchdatas();
 
+  // Récupération des états
+  /************************/
   const [items, loading, modal] = useFetchdatas();
 
   if (loading) {

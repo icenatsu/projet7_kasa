@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "components/Modal/Modal.module.scss";
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Modal = ({ isShowing, title, text }) => {
+  // Compteur de l'affichage de la modale d'erreur
+  /***********************************************/
   const [count, setCount] = useState(true);
 
-  // Fonction du compteur de l'affichage de la modale d'erreur
-  /***********************************************************/
   function useCountModal() {
     useEffect(() => {
       setTimeout(() => {
@@ -18,23 +18,23 @@ const Modal = ({ isShowing, title, text }) => {
   }
   useCountModal();
 
-  // Fonction pour fermer la modale
-  /*********************************/
+  // Fermeture de la modale
+  /************************/
   const hide = () => {
     setCount(false);
 
     return count;
   };
 
-  const widthProgressBar = useRef();
-
-  // Fonction pour récupérer la largeur de la barre de progression
+  // Récupération de la largeur de la barre de progression
   // pour ajuster sa translation en fonction du responsive
   /*******************************************************/
+  const widthProgressBar = useRef();
+
   function useRecupWidth() {
     const [width, setWidth] = useState(0);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
       setWidth(widthProgressBar.current.offsetWidth);
     }, []);
 
