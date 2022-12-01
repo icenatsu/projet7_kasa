@@ -1,49 +1,20 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import styles from "pages/About/About.module.scss";
 import Banner from "components/Banner/Banner";
 import Accordion from "components/Accordion/Accordion";
-// import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Loader from "components/Loader/Loader";
 import Modal from "components/Modal/Modal";
+import useFetchdatas from "utils/Hook";
 
 const About = () => {
   // Gestion de fetch
   // Temps de chargement, récupération des données et modale si erreur
   /*******************************************************************/
-  function useFetchdatas() {
-    const [state, setState] = useState({
-      items: [],
-      loading: true,
-      modal: false,
-    });
-
-    useEffect(() => {
-      const fetchDatas = async () => {
-        try {
-          let fetchconfig = await fetch("/dataabout.json");
-          let response = await fetchconfig.json();
-
-          setState({
-            items: response,
-            loading: false,
-            modal: false,
-          });
-        } catch (e) {
-          setState((s) => ({ ...s, loading: false, modal: true }));
-        }
-      };
-      fetchDatas();
-    }, []);
-    return [state.items, state.loading, state.modal];
-  }
-
-  useFetchdatas();
+  useFetchdatas("/dataabout.json");
 
   // Récupération des états
   /************************/
-  const [items, loading, modal] = useFetchdatas();
+  const [items, loading, modal] = useFetchdatas("/dataabout.json");
 
   if (loading) {
     return <Loader />;

@@ -1,6 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import styles from "pages/HouseDetails/HouseDetails.module.scss";
 import Slide from "components/Slide/Slide";
 import Accordion from "components/Accordion/Accordion";
@@ -8,6 +6,7 @@ import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
 import Loader from "components/Loader/Loader";
 import Modal from "components/Modal/Modal";
+import useFetchdatas from "utils/Hook";
 
 const HouseDetails = () => {
   // Tableau des rates
@@ -17,46 +16,12 @@ const HouseDetails = () => {
   // Gestion de fetch
   // Temps de chargement, récupération des données et modale si erreur
   /********************************************************************/
-  function useFetchdatas() {
-    const { id } = useParams();
-    const navigate = useNavigate();
-
-    const [state, setState] = useState({
-      items: [],
-      loading: true,
-      modal: false,
-    });
-
-    useEffect(() => {
-      const fetchDatas = async () => {
-        try {
-          let fetchconfig = await fetch("/logement.json");
-          let response = await fetchconfig.json();
-
-          const currentAccommodation = response.find(
-            (accommodation) => accommodation.id === id
-          );
-          if (currentAccommodation === undefined) {
-            navigate("*");
-          }
-          setState({
-            items: currentAccommodation,
-            loading: false,
-          });
-        } catch (e) {
-          setState((s) => ({ ...s, loading: false, modal: true }));
-        }
-      };
-      fetchDatas();
-    }, [id, navigate]);
-
-    return [state.items, state.loading, state.modal];
-  }
-  useFetchdatas();
+  useFetchdatas("/logements.json");
 
   // Récupération des états
   /************************/
-  const [items, loading, modal] = useFetchdatas();
+  const [items, loading, modal] = useFetchdatas("/logements.json");
+  console.log(items);
 
   if (loading) {
     return <Loader />;

@@ -2,44 +2,19 @@ import React from "react";
 import styles from "pages/Home/Home.module.scss";
 import Card from "components/Card/Card";
 import Banner from "components/Banner/Banner";
-import { useState, useEffect } from "react";
 import Loader from "components/Loader/Loader";
 import Modal from "components/Modal/Modal";
+import useFetchdatas from "utils/Hook";
 
 const Home = () => {
   // Gestion de fetch
   // Temps de chargement, récupération des données et modale si erreur
   /*******************************************************************/
-  function useFetchdatas() {
-    const [state, setState] = useState({
-      items: [],
-      loading: true,
-      modal: false,
-    });
-
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          let fetchconfig = await fetch("/logements.json");
-          let response = await fetchconfig.json();
-
-          setState({
-            items: response,
-            loading: false,
-          });
-        } catch (e) {
-          setState((state) => ({ ...state, loading: false, modal: true }));
-        }
-      };
-      fetchData();
-    }, []);
-    return [state.items, state.loading, state.modal];
-  }
-  useFetchdatas();
+  useFetchdatas("/logements.json");
 
   // Récupération des états
   /************************/
-  const [items, loading, modal] = useFetchdatas();
+  const [items, loading, modal] = useFetchdatas("/logements.json");
 
   if (loading) {
     return <Loader />;
