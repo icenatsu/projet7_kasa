@@ -6,8 +6,8 @@ import previousArrow from "assets/img/arrow_left.png";
 
 const Slide = ({ pictures }) => {
   // Gestion de l'état de l'image courante
-  // en fonction des boutons next ou slide
-  /********************************************/
+  // en fonction des boutons prev ou next
+  /****************************************/
   const [currentSlide, dispatch] = useReducer(reducer, 0);
 
   function reducer(state, action) {
@@ -22,7 +22,7 @@ const Slide = ({ pictures }) => {
     }
   }
 
-  // Gestion de la visibilité des boutons next et slide
+  // Gestion de la visibilité des boutons prev et next
   // en fonction du nombre d'images (si plus d'une image)
   /*******************************************************/
   const [show, setShow] = useState(false);
@@ -34,7 +34,7 @@ const Slide = ({ pictures }) => {
       }
     };
     toogle();
-  }, []);
+  }, [pictures]);
 
   return (
     <div className={styles["slide"]}>

@@ -29,16 +29,15 @@ export default function useFetchdatas(url) {
           if (currentAccommodation === undefined) {
             navigate("*");
           }
-          setState({
+          return setState({
             items: currentAccommodation,
             loading: false,
           });
-        } else {
-          setState({
-            items: response,
-            loading: false,
-          });
         }
+        setState({
+          items: response,
+          loading: false,
+        });
       } catch (e) {
         setState((s) => ({ ...s, loading: false, modal: true }));
       }
