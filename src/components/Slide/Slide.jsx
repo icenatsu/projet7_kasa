@@ -22,9 +22,9 @@ const Slide = ({ pictures }) => {
     }
   }
 
-  // Gestion de la visibilités des boutons next et slide
-  // en fonction du nombre d'images (si pas plus d'une image)
-  /***********************************************************/
+  // Gestion de la visibilité des boutons next et slide
+  // en fonction du nombre d'images (si plus d'une image)
+  /*******************************************************/
   const [show, setShow] = useState(false);
 
   useEffect(() => {
