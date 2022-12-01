@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+// Gestion de fetch
+// Temps de chargement, récupération des données et modale si erreur
+/*******************************************************************/
 export default function useFetchdatas(url) {
   const { id } = useParams();
   const navigate = useNavigate();

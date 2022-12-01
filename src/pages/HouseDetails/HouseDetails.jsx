@@ -13,13 +13,8 @@ const HouseDetails = () => {
   /*******************/
   const stars = [1, 2, 3, 4, 5];
 
-  // Gestion de fetch
-  // Temps de chargement, récupération des données et modale si erreur
-  /********************************************************************/
-  useFetchdatas("/logements.json");
-
-  // Récupération des états
-  /************************/
+  // Récupération des états à l'appel de fetch
+  /********************************************/
   const [items, loading, modal] = useFetchdatas("/logements.json");
   console.log(items);
 

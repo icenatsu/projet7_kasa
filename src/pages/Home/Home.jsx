@@ -7,13 +7,8 @@ import Modal from "components/Modal/Modal";
 import useFetchdatas from "utils/Hook";
 
 const Home = () => {
-  // Gestion de fetch
-  // Temps de chargement, récupération des données et modale si erreur
-  /*******************************************************************/
-  useFetchdatas("/logements.json");
-
-  // Récupération des états
-  /************************/
+  // Récupération des états à l'appel de Fetch
+  /*******************************************/
   const [items, loading, modal] = useFetchdatas("/logements.json");
 
   if (loading) {
