@@ -44,7 +44,7 @@ export default function useFetchdatas(url) {
       }
     };
     fetchDatas();
-  }, []);
+  }, [id, navigate, url]);
 
   return [state.items, state.loading, state.modal];
 }
