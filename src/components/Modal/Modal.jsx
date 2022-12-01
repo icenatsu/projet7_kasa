@@ -18,8 +18,8 @@ const Modal = ({ isShowing, title, text }) => {
   }
   useCountModal();
 
-  // Fermeture de la modale
-  /************************/
+  // Fermeture de la modale (x)
+  /****************************/
   const hide = () => {
     setCount(false);
 
@@ -46,34 +46,32 @@ const Modal = ({ isShowing, title, text }) => {
   if (count) {
     return (
       isShowing && (
-        <>
-          <div className={styles["container"]}>
-            <div className={styles["modal"]}>
-              <div className={styles["modal__header"]}>
-                <div className={styles["modal__title"]}>{title}</div>
-                <button
-                  type="button"
-                  className={styles["modal__close-button"]}
-                  onClick={hide}
-                >
-                  <span>&times;</span>
-                </button>
-              </div>
-              <div className={styles["modal__body"]}>
-                <div className={styles["modal__body__text"]}>{text}</div>
+        <div className={styles["container"]}>
+          <div className={styles["modal"]}>
+            <div className={styles["modal__header"]}>
+              <div className={styles["modal__title"]}>{title}</div>
+              <button
+                type="button"
+                className={styles["modal__close-button"]}
+                onClick={hide}
+              >
+                <span>&times;</span>
+              </button>
+            </div>
+            <div className={styles["modal__body"]}>
+              <div className={styles["modal__body__text"]}>{text}</div>
+              <div
+                className={styles["modal__body__progress-bar"]}
+                ref={widthProgressBar}
+              >
                 <div
-                  className={styles["modal__body__progress-bar"]}
-                  ref={widthProgressBar}
-                >
-                  <div
-                    className={styles["modal__body__progress-bar__bar"]}
-                    style={{ transform: `translateX(${width}px)` }}
-                  ></div>
-                </div>
+                  className={styles["modal__body__progress-bar__bar"]}
+                  style={{ transform: `translateX(${width}px)` }}
+                ></div>
               </div>
             </div>
           </div>
-        </>
+        </div>
       )
     );
   }
