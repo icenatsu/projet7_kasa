@@ -28,6 +28,7 @@ export function useFetchDatas(url) {
           setState({
             items: currentAccommodation,
             loading: false,
+            modal: false,
           });
         }
         // Si c'est la page home ou about
