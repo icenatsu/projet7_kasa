@@ -56,7 +56,7 @@ const HouseDetails = () => {
 
   // Récupération des états à l'appel de fetch
   /********************************************/
-  const [items, loading, modal] = useFetchDatas("/logements.json");
+  const [items, loading, modal] = useFetchDatas();
 
   if (loading) {
     return <Loader />;

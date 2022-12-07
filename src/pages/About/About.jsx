@@ -42,7 +42,7 @@ const About = () => {
 
   // Récupération des états à l'appel de Fetch
   /*******************************************/
-  const [items, loading, modal] = useFetchDatas("/dataabout.json");
+  const [items, loading, modal] = useFetchDatas();
 
   if (loading) {
     return <Loader />;

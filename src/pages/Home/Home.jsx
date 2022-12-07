@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "pages/Home/Home.module.scss";
 import Card from "components/Card/Card";
 import Banner from "components/Banner/Banner";
@@ -38,9 +38,13 @@ const Home = () => {
   }
   useFetchDatas();
 
+  const container = useRef();
+  console.log(container);
+  console.log(container.current);
+
   // Récupération des états à l'appel de Fetch
   /*******************************************/
-  const [items, loading, modal] = useFetchDatas("/logements.json");
+  const [items, loading, modal] = useFetchDatas();
 
   if (loading) {
     return <Loader />;
@@ -70,7 +74,7 @@ const Home = () => {
         srcImg={BannerHome}
         altTexte="Photo de paysage côtier"
       />
-      <div className={styles.container}>
+      <div className={styles.container} ref={container}>
         {items.map((accos, index) => (
           <Card
             title={accos.title}
