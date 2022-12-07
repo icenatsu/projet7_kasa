@@ -39,8 +39,12 @@ const Home = () => {
   useFetchDatas();
 
   const container = useRef();
-  console.log(container);
   console.log(container.current);
+
+  useEffect(() => {
+    const el2 = container.current;
+    console.log(el2);
+  }, []);
 
   // Récupération des états à l'appel de Fetch
   /*******************************************/
