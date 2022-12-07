@@ -18,10 +18,12 @@ export default function useFetchdatas(url) {
     const fetchDatas = async () => {
       try {
         let fetchconfig = await fetch(url);
+        console.log("response");
         let response = await fetchconfig.json();
 
         const pathname = document.location.pathname;
 
+        // Si c'est la page housedetails
         if (pathname === `/acco/${id}`) {
           const currentAccommodation = response.find(
             (accommodation) => accommodation.id === id
@@ -32,18 +34,21 @@ export default function useFetchdatas(url) {
           return setState({
             items: currentAccommodation,
             loading: false,
+            modal: false,
           });
         }
+        // si c'est la page home ou about
         setState({
           items: response,
           loading: false,
+          modal: false,
         });
       } catch (e) {
         setState((s) => ({ ...s, loading: false, modal: true }));
       }
     };
     fetchDatas();
-  }, [id, navigate, url]);
+  }, [id, url]);
 
   return [state.items, state.loading, state.modal];
 }

@@ -36,7 +36,7 @@ const About = () => {
           return (
             <Accordion
               page="about"
-              classList="menu_col_80"
+              classList="flex_col_80"
               title={about.title}
               text={about.text}
               key={index}

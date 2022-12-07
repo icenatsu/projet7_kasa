@@ -30,11 +30,11 @@ const Slide = ({ pictures }) => {
   useEffect(() => {
     const toogle = () => {
       if (pictures.length > 1) {
-        setShow(!show);
+        setShow((s) => s + !show);
       }
     };
     toogle();
-  }, [pictures]);
+  });
 
   return (
     <div className={styles["slide"]}>

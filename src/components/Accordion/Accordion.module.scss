@@ -1,5 +1,4 @@
 @use '../../sass/utils/variables';
-@use '../../sass/utils/framework';
 
 .container{
     &__houseDetails, &__about{    
@@ -81,5 +80,15 @@
     }
 }
 
+.flex_col_45{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
 
+.flex_col_80{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
 

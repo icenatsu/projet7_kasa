@@ -9,7 +9,9 @@ const Accordion = ({ page, classList, text, title, style }) => {
   const [active, setActive] = useState(false);
 
   const showContent = () => {
-    setActive(!active);
+    setActive((current) => {
+      return (current = !active);
+    });
   };
 
   return (

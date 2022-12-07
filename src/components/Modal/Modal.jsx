@@ -10,7 +10,9 @@ const Modal = ({ isShowing, title, text }) => {
   function useCountModal() {
     useEffect(() => {
       setTimeout(() => {
-        setCount(false);
+        setCount((current) => {
+          return (current = false);
+        });
       }, 6000);
     }, []);
 
@@ -21,7 +23,9 @@ const Modal = ({ isShowing, title, text }) => {
   // Fermeture de la modale (x)
   /****************************/
   const hide = () => {
-    setCount(false);
+    setCount((current) => {
+      return (current = false);
+    });
 
     return count;
   };
@@ -35,7 +39,9 @@ const Modal = ({ isShowing, title, text }) => {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-      setWidth(widthProgressBar.current.offsetWidth);
+      setWidth((current) => {
+        return (current = widthProgressBar.current.offsetWidth);
+      });
     }, []);
 
     return { width };

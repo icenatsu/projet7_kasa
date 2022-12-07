@@ -91,14 +91,14 @@ const HouseDetails = () => {
         <div className={styles.dropdowns}>
           <Accordion
             page="houseDetails"
-            classList="menu_col_45"
+            classList="flex_col_45"
             title="Description"
             text={items.description}
             style={{ borderRadius: `${10}px` }}
           />
           <Accordion
             page="houseDetails"
-            classList="menu_col_45"
+            classList="flex_col_45"
             title="Équipements"
             style={{ borderRadius: `${10}px` }}
             text={items.equipments.map((equipments, index) => {
