@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Home from "pages/Home/Home";
 import About from "pages/About/About";
-import AccommodationSheet from "pages/AccomodationSheet/AccomodationSheet";
+import HouseDetails from "pages/HouseDetails/HouseDetails";
 import Error from "pages/NotFound/NotFound";
 import Layout from "./layout/Layout";
 
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/acco/:id",
-        element: <AccommodationSheet />,
+        element: <HouseDetails />,
       },
       {
         path: "*",

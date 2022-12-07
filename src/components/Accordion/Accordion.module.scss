@@ -1,17 +1,15 @@
 @use '../../sass/utils/variables';
-@use '../../sass/utils/framework';
 
-.menu-container{
-    &__accommodation, &__menuAbout{    
+.container{
+    &__houseDetails, &__about{    
         margin-top: 2%;  
-
+  
         @media screen and (max-width: variables.$breakpoint-mobile) {      
             width: 100%;
             margin-bottom: 10px;
         }
 
         &__element{
-            // border-radius: variables.$medium-radius;
             background-color: variables.$primary-color;
             display: flex;
             justify-content: space-between;
@@ -46,19 +44,18 @@
                 margin-right: 10px;
 
                 @media screen and (max-width: variables.$breakpoint-tablette) {
-                    height: 17px;
+                    height: 22px;
                 }
                 @media screen and (max-width: variables.$breakpoint-mobile) {
-                    height: 15px;
+                    height: 18px;
                 }
             }
         }
 
         &__content{
-            display: none; 
+            display: none;
             color: variables.$primary-color;
-            background-color: #F6F6F6;
-            // border-radius: variables.$small-radius;
+            background-color: variables.$fourth-color;
             margin-top: -15px;
             z-index: -999;
 
@@ -77,11 +74,25 @@
         }
 
         .active {
-            display: block;   
-            transform: rotate(0deg);        
+            display: block;
+            transform: rotate(0deg);       
         }
     }
 }
 
+.flex_col_45{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    @media screen and (max-width: variables.$breakpoint-mobile) {
+        width: 100%;  
+    }
 
+}
+
+.flex_col_80{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
 

@@ -1,62 +1,87 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import styles from "pages/Home/Home.module.scss";
 import Card from "components/Card/Card";
 import Banner from "components/Banner/Banner";
-import { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Loader from "components/Loader/Loader";
+import Modal from "components/Modal/Modal";
+import BannerHome from "assets/img/home_bann.png";
 
 const Home = () => {
-  const [state, setState] = useState({
-    items: [],
-    loading: true,
-  });
+  // Gestion de fetch
+  // Temps de chargement, récupération des données et modale si erreur
+  /*******************************************************************/
+  function useFetchDatas() {
+    const [state, setState] = useState({
+      items: [],
+      loading: true,
+      modal: false,
+    });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let fetchconfig = await fetch("/logements.json");
-        let response = Object.assign([], await fetchconfig.json());
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          let fetchconfig = await fetch("/logements.json");
+          let response = await fetchconfig.json();
 
-        setState({
-          items: response,
-          loading: false,
-        });
-      } catch (e) {
-        console.log(e);
-        toast.error("Les logements ne sont pas disponibles");
-        setState((state) => ({ ...state, loading: false }));
-      }
-    };
-    fetchData();
-  }, []);
+          setState({
+            items: response,
+            loading: false,
+          });
+        } catch (e) {
+          setState((state) => ({ ...state, loading: false, modal: true }));
+        }
+      };
+      fetchData();
+    }, []);
+    return [state.items, state.loading, state.modal];
+  }
+  useFetchDatas();
 
-  const { items, loading } = state;
+  // Récupération des états à l'appel de Fetch
+  /*******************************************/
+  const [items, loading, modal] = useFetchDatas("/logements.json");
 
-  if (!loading) {
-    if (items.length !== 0) {
-      return (
-        <>
-          <Banner title="Chez vous, partout et ailleurs" />
-          <div className={styles.container}>
-            {items.map((accos, index) => (
-              <Card
-                title={accos.title}
-                cover={accos.cover}
-                id={accos.id}
-                key={index}
-              />
-            ))}
-          </div>
-        </>
-      );
-    } else {
-      return <ToastContainer />;
-    }
-  } else {
+  if (loading) {
     return <Loader />;
   }
+
+  if (modal) {
+    return (
+      <>
+        <Banner
+          title="Chez vous, partout et ailleurs"
+          srcImg={BannerHome}
+          altTexte="Photo de paysage côtier"
+        />
+        <Modal
+          isShowing={modal}
+          title="Erreur de chargement.."
+          text="Les logements ne sont pas disponibles"
+        ></Modal>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Banner
+        title="Chez vous, partout et ailleurs"
+        srcImg={BannerHome}
+        altTexte="Photo de paysage côtier"
+      />
+      <div className={styles.container}>
+        {items.map((accos, index) => (
+          <Card
+            title={accos.title}
+            cover={accos.cover}
+            id={accos.id}
+            key={index}
+          />
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default Home;

@@ -50,15 +50,9 @@
         
             & img{
                 @include mixins.fullSize;
-
-                @media screen and (max-width: variables.$breakpoint-tablette) {
-                    object-fit: cover;
-                }
+                object-fit: cover;
             }
         }
     }
 }
-
-
-
 

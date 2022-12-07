@@ -1,29 +1,5 @@
 @use '../utils/variables';
 
-@keyframes slideEffect{
-    0%{
-        transform: translateX(250px);  
-        transition: 1s;  
-        opacity: 0; 
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 1; 
-    }
-}
-
-@keyframes slideEffect2{
-    0%{
-        transform: translateX(-250px);  
-        transition: 1s;   
-        opacity: 0; 
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 1; 
-    }
-}
-
 @keyframes point {
     0% {
         color: variables.$primary-color;
@@ -33,10 +9,40 @@
     90% {
         color: variables.$loading-color1;
         text-shadow: none;
+        transform: scale(1.2);
     }
 
     100% {
         color: variables.$loading-color2;
         text-shadow: 0 0 7px variables.$primary-color;
+    }
+}
+
+@keyframes shakeBox{
+    0%{
+        transform: translateX(-5px);
+    }
+    25%{
+        transform: translateX(5px);
+    }
+    50%{
+        transform: translateX(-5px);
+    }
+    100%{
+        transform: translateX(5px);
+    }
+}
+
+@keyframes progress{
+    0%{
+        transform-origin: right 50%;
+        background-color: blueviolet;
+    }
+    50%{
+        background-color: variables.$primary-color;
+    }
+    100%{
+        background-color: red;
+        transform: translateX(0);
     }
 }

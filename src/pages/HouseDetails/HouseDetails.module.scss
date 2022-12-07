@@ -147,12 +147,14 @@
                 display: flex;
                 height: 38px;
                 margin-top: 10px;  
+                min-width: 150px;
                 
                 @media screen and (max-width: variables.$breakpoint-tablette) {
                     height: 30px;
                 }
                 @media screen and (max-width: variables.$breakpoint-mobile) {
                     height: 20px;
+                   
                 }
             
             }
@@ -169,3 +171,4 @@
         }
     }
 }
+
