@@ -7,8 +7,9 @@ import Loader from "components/Loader/Loader";
 import BannerHome from "assets/img/home_bann.png";
 
 const Home = () => {
-  // Gestion de fetch  // Temps de chargement, récupération des données et modale si erreur
-  /*******************************************************************/
+  // Gestion de fetch
+  // Temps de chargement et récupération des données
+  /*************************************************/
   function useFetchDatas() {
     const [state, setState] = useState({
       items: [],
@@ -37,6 +38,7 @@ const Home = () => {
   const [items, loading] = useFetchDatas();
 
   // Récupération de l'élément container
+  /*************************************/
   const container = useRef();
   useEffect(() => {
     console.log(container.current);
