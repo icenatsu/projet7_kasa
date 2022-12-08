@@ -38,8 +38,6 @@ const About = () => {
     return [state.items, state.loading, state.modal];
   }
 
-  useFetchDatas();
-
   // Récupération des états à l'appel de Fetch
   /*******************************************/
   const [items, loading, modal] = useFetchDatas();

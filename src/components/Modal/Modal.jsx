@@ -46,7 +46,6 @@ const Modal = ({ isShowing, title, text }) => {
 
     return { width };
   }
-  useRecupWidth();
   const { width } = useRecupWidth();
 
   if (count) {

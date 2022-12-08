@@ -52,7 +52,6 @@ const HouseDetails = () => {
 
     return [state.items, state.loading, state.modal];
   }
-  useFetchDatas();
 
   // Récupération des états à l'appel de fetch
   /********************************************/
