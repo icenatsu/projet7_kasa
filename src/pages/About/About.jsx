@@ -4,18 +4,18 @@ import styles from "pages/About/About.module.scss";
 import Banner from "components/Banner/Banner";
 import Accordion from "components/Accordion/Accordion";
 import Loader from "components/Loader/Loader";
-import Modal from "components/Modal/Modal";
 import BannerAbout from "assets/img/about_bann.png";
+import FlashError from "components/ErrorMessage/ErrorMessage";
 
 const About = () => {
   // Gestion de fetch
-  // Temps de chargement, récupération des données et modale si erreur
-  /*******************************************************************/
+  // Temps de chargement, récupération des données et msg flash si erreur
+  /***********************************************************************/
   function useFetchDatas() {
     const [state, setState] = useState({
       items: [],
       loading: true,
-      modal: false,
+      flashError: false,
     });
 
     useEffect(() => {
@@ -27,40 +27,32 @@ const About = () => {
           setState({
             items: response,
             loading: false,
-            modal: false,
+            flashError: false,
           });
         } catch (e) {
-          setState((s) => ({ ...s, loading: false, modal: true }));
+          setState((s) => ({ ...s, loading: false, flashError: true }));
         }
       };
       fetchDatas();
     }, []);
-    return [state.items, state.loading, state.modal];
+    return [state.items, state.loading, state.flashError];
   }
 
   // Récupération des états à l'appel de Fetch
   /*******************************************/
-  const [items, loading, modal] = useFetchDatas();
+  const [items, loading, flashError] = useFetchDatas();
 
   if (loading) {
     return <Loader />;
   }
 
-  if (modal) {
-    return (
-      <>
-        <Banner srcImg={BannerAbout} altTexte="Photo de paysage de montagnes" />
-        <Modal
-          isShowing={modal}
-          title="Erreur de chargement.."
-          text="Les informations ne sont pas disponibles"
-        ></Modal>
-      </>
-    );
-  }
-
   return (
     <>
+      <FlashError
+        active={flashError}
+        title="Erreur de chargement..."
+        text="Les informations ne sont pas disponibles"
+      />
       <Banner srcImg={BannerAbout} altTexte="Photo de paysage de montagnes" />
       <div className={styles.dropdowns}>
         {items.map((about, index) => {
