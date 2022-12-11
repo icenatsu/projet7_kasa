@@ -2,6 +2,8 @@ import React, { forwardRef, useRef, useState, useEffect } from "react";
 import styles from "components/ErrorMessage/ErrorMessage.module.scss";
 
 const FlashError = forwardRef(({ title, text, active }, ref) => {
+  // Récupération de la largeur du container du msg flash pour adaptation reponsive
+  /********************************************************************************/
   const widthProgressBar = useRef();
 
   function useRecupWidth() {
@@ -18,7 +20,7 @@ const FlashError = forwardRef(({ title, text, active }, ref) => {
   const { width } = useRecupWidth();
 
   // Fermeture du message flash (x)
-  /****************************/
+  /********************************/
   const [show, setShow] = useState(true);
 
   const hide = () => {
