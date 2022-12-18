@@ -35,7 +35,7 @@ export const useNotification = () => {
     dispatch({
       type: "ADD_NOTIFICATION",
       payload: {
-        id: 5,
+        id: Math.random(),
         ...props,
       },
     });
