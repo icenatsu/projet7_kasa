@@ -6,7 +6,7 @@ import Accordion from "components/Accordion/Accordion";
 import emptyStar from "assets/img/star_rate-empty.svg";
 import fullStar from "assets/img/star_rate-full.svg";
 import Loader from "components/Loader/Loader";
-import FlashError from "components/ErrorMessage/ErrorMessage";
+import { useNotification } from "../../Notifications/NotificationsProvider";
 
 const HouseDetails = () => {
   // Tableau des rates
@@ -16,6 +16,7 @@ const HouseDetails = () => {
   // Gestion de fetch
   // Temps de chargement, récupération des données et msg flash si erreur
   /**********************************************************************/
+
   function useFetchDatas() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -23,8 +24,8 @@ const HouseDetails = () => {
     const [state, setState] = useState({
       items: [],
       loading: true,
-      flashError: false,
     });
+    const dispatch = useNotification();
 
     useEffect(() => {
       const fetchDatas = async () => {
@@ -41,34 +42,32 @@ const HouseDetails = () => {
           setState({
             items: currentAccommodation,
             loading: false,
-            flashError: false,
           });
         } catch (e) {
-          setState((s) => ({ ...s, loading: false, flashError: true }));
+          setState((s) => ({ ...s, loading: false }));
+          dispatch({
+            type: "ERROR",
+            message: "Le logement n'est pas disponible",
+          });
         }
       };
       fetchDatas();
     }, [id, navigate]);
 
-    return [state.items, state.loading, state.flashError];
+    return [state.items, state.loading];
   }
 
   // Récupération des états à l'appel de fetch
   /********************************************/
-  const [items, loading, flashError] = useFetchDatas();
+  const [items, loading] = useFetchDatas();
 
   if (loading) {
     return <Loader />;
   }
 
-  return (
-    <>
-      <FlashError
-        active={flashError}
-        title="Erreur de chargement..."
-        text="Le logement n'est pas disponible"
-      />
-      {!flashError ? (
+  if (items.length !== 0)
+    return (
+      <>
         <div className="div">
           <div className={styles["container-pictures"]}>
             <Slide pictures={items.pictures}></Slide>
@@ -151,9 +150,8 @@ const HouseDetails = () => {
             </div>
           </div>
         </div>
-      ) : null}
-    </>
-  );
+      </>
+    );
 };
 
 export default HouseDetails;

@@ -1,0 +1,59 @@
+.notification-item{
+    box-shadow:  0 0 5px rgba($color: #000000, $alpha: 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+    background-color: white;
+    animation: SlideLeft 0.2s forwards;
+    display: flex;
+    flex-direction: column;
+    
+
+    & p{
+        flex: 3;
+        margin: 0;
+        padding: 10px 0 0 10px;
+        font-size: 15px;
+    }
+
+    .bar{
+        flex: 1;
+    }
+}
+
+
+.notification-item.exit{    
+    animation: SlideRight 0.2s forwards;
+}
+
+.notification-item.success .bar{    
+    background-color: rgb(33, 160, 33);
+}
+
+.notification-item.error .bar{
+    background-color: tomato;
+}
+
+@keyframes SlideLeft{
+    0%{
+        margin-left: 120%;
+    }
+
+    100%{
+        margin-left: 0;
+    }
+}
+
+@keyframes SlideRight{
+    0%{
+        margin-left: 0;
+    }
+
+    100%{
+        margin-left: 120%;
+    }
+}
+
+
