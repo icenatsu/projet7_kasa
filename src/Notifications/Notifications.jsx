@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
 import styles from "Notifications/Notifications.module.scss";
 
+// Notification flash (succes / error)
+/*************************************/
+
 const Notification = (props) => {
+  // Gestion des états de la barre de progression
+  /**********************************************/
+  // - Sortie
   const [exit, setExit] = useState(false);
+  // - Largeur
   const [width, setWidth] = useState(0);
+  // - Interval
   const [intervalID, setIntervalID] = useState(null);
 
+  // Configuration de de la barre de progression
+  /*********************************************/
+  // - Démarrage
   const handleStartTimer = () => {
     const id = setInterval(() => {
       setWidth((prev) => {
@@ -18,14 +29,15 @@ const Notification = (props) => {
     setIntervalID(id);
   };
 
+  // - Pause
   const handlePauseTimer = () => {
     clearInterval(intervalID);
   };
 
+  // - Fermeture
   const handleCloseNotification = () => {
     setExit(true);
     setTimeout(() => {
-      // Remove state and therefore the dom
       props.dispatch({
         type: "REMOVE_NOTIFICATION",
         id: props.id,
@@ -33,16 +45,19 @@ const Notification = (props) => {
     }, 400);
   };
 
-  useEffect(() => {
-    if (width === 100) {
-      // Close notification
-      handleCloseNotification();
-    }
-  }, [width]);
-
+  // Activation
+  /************/
+  // - Démarrage de l'interval
   useEffect(() => {
     handleStartTimer();
   }, []);
+
+  // - Fermeture en fonction de la largeur
+  useEffect(() => {
+    if (width === 100) {
+      handleCloseNotification();
+    }
+  }, [width]);
 
   return (
     <div

@@ -28,6 +28,10 @@ const Home = () => {
             items: response,
             loading: false,
           });
+          dispatch({
+            type: "SUCCESS",
+            message: "Voici nos logements",
+          });
         } catch (e) {
           setState((s) => ({ ...s, loading: false }));
           dispatch({

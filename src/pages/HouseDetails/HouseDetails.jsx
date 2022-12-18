@@ -43,6 +43,10 @@ const HouseDetails = () => {
             items: currentAccommodation,
             loading: false,
           });
+          dispatch({
+            type: "SUCCESS",
+            message: "Voici le logement",
+          });
         } catch (e) {
           setState((s) => ({ ...s, loading: false }));
           dispatch({

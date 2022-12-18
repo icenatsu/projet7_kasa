@@ -9,22 +9,28 @@
     background-color: white;
     animation: SlideLeft 0.2s forwards;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
-    width: 350px;
+    width: 300px;
     height: 60px;
 
-    @media screen and (max-width: variables.$breakpoint-tablette) {
-        width: 330px;
-    }
     @media screen and (max-width: variables.$breakpoint-mobile) {
-        width: 290px;
+        width: 260px;
+        height: 40px;
     }
 
     & p{
         flex: 3;
         margin: 0;
-        padding: 10px 0 0 10px;
+        padding: 10px;
+        // padding: 10px 0px 0 10px;
         font-size: 15px;
+  
+        
+        word-wrap: break-word;
+        overflow: hidden;
+//   text-overflow: ellipsis; 
+      
 
         @media screen and (max-width: variables.$breakpoint-mobile) {
             font-size: 12px;
@@ -33,6 +39,7 @@
 
     .bar{
         flex: 1;
+        height: 10px;
     }
 }
 
@@ -41,7 +48,7 @@
 }
 
 .notification-item.success .bar{    
-    background-color: rgb(33, 160, 33);
+    background-color: rgb(43, 172, 60);
 }
 
 .notification-item.error .bar{
