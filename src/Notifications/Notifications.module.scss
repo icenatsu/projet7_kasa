@@ -1,4 +1,5 @@
 @use '../sass/utils/variables';
+@use '../sass/base/animations';
 
 .notification-item{
     box-shadow:  0 0 5px rgba($color: #000000, $alpha: 0.4);
@@ -25,9 +26,6 @@
         padding: 10px 0 0 10px;
         font-size: 15px;
 
-        @media screen and (max-width: variables.$breakpoint-tablette) {
-            font-size: 14px;
-        }
         @media screen and (max-width: variables.$breakpoint-mobile) {
             font-size: 12px;
         }
@@ -37,7 +35,6 @@
         flex: 1;
     }
 }
-
 
 .notification-item.exit{    
     animation: SlideRight 0.2s forwards;
@@ -50,25 +47,3 @@
 .notification-item.error .bar{
     background-color: tomato;
 }
-
-@keyframes SlideLeft{
-    0%{
-        margin-left: 120%;
-    }
-
-    100%{
-        margin-left: 0;
-    }
-}
-
-@keyframes SlideRight{
-    0%{
-        margin-left: 0;
-    }
-
-    100%{
-        margin-left: 120%;
-    }
-}
-
-

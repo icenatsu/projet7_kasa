@@ -44,3 +44,23 @@
         transform: translateX(0);
     }
 }
+
+@keyframes SlideLeft{
+    0%{
+        margin-left: 120%;
+    }
+
+    100%{
+        margin-left: 0;
+    }
+}
+
+@keyframes SlideRight{
+    0%{
+        margin-left: 0;
+    }
+
+    100%{
+        margin-left: 120%;
+    }
+}
