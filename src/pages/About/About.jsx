@@ -22,7 +22,7 @@ const About = () => {
     useEffect(() => {
       const fetchDatas = async () => {
         try {
-          let fetchconfig = await fetch("/dataabou.json");
+          let fetchconfig = await fetch("/dataAbout.json");
           let response = await fetchconfig.json();
 
           setState({

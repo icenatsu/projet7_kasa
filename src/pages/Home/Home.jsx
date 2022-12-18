@@ -22,7 +22,7 @@ const Home = () => {
     useEffect(() => {
       const fetchDatas = async () => {
         try {
-          let fetchconfig = await fetch("/logement.json");
+          let fetchconfig = await fetch("/logements.json");
           let response = await fetchconfig.json();
           setState({
             items: response,
@@ -32,7 +32,7 @@ const Home = () => {
           setState((s) => ({ ...s, loading: false }));
           dispatch({
             type: "ERROR",
-            message: "Les logement ne sont pas disponibles",
+            message: "Les logements ne sont pas disponibles",
           });
         }
       };
