@@ -29,10 +29,6 @@ const About = () => {
             items: response,
             loading: false,
           });
-          dispatch({
-            type: "SUCCESS",
-            message: "Voici les informations",
-          });
         } catch (e) {
           setState((s) => ({ ...s, loading: false }));
           dispatch({

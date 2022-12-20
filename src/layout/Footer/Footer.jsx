@@ -8,7 +8,7 @@ const Footer = () => {
       <div className={styles.logo}>
         <img src={logo} alt="logo kasa monochrome"></img>
       </div>
-      <div className={styles.copyright}>© 2020 Kasa. All rights reserved</div>
+      <p className={styles.copyright}>© 2020 Kasa. All rights reserved</p>
     </footer>
   );
 };
