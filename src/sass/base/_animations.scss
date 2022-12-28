@@ -30,19 +30,37 @@
     }
     100%{
         transform: translateX(5px);
+        opacity: 0;
     }
 }
 
 @keyframes progress{
     0%{
         transform-origin: right 50%;
-        background-color: blueviolet;
-    }
-    50%{
-        background-color: variables.$primary-color;
+        background-color: white;
     }
     100%{
-        background-color: red;
+        background-color: white;
         transform: translateX(0);
+    }
+}
+
+@keyframes SlideLeft{
+    0%{
+        margin-left: 120%;
+    }
+
+    100%{
+        margin-left: 0;
+    }
+}
+
+@keyframes SlideRight{
+    0%{
+        margin-left: 0;
+    }
+
+    100%{
+        margin-left: 120%;
     }
 }

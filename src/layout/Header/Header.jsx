@@ -3,6 +3,8 @@ import logo from "assets/img/logo_kasa.png";
 import { NavLink } from "react-router-dom";
 import styles from "layout/Header/Header.module.scss";
 
+// Composant Header possédant le logo et les liens de navigations
+/****************************************************************/
 const Header = () => {
   return (
     <header>

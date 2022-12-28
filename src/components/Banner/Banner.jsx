@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "components/Banner/Banner.module.scss";
 
+// Gestion de la bannière au niveay de son titre, la source et le texte alternatif de l'image
+/*********************************************************************************************/
 const Banner = ({ title, srcImg, altTexte }) => {
   return (
     <div className={styles.banner}>

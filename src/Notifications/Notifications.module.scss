@@ -1,0 +1,56 @@
+@use '../sass/utils/variables';
+@use '../sass/base/animations';
+
+.notification-item{
+    box-shadow:  0 0 5px rgba($color: #000000, $alpha: 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: white;
+    animation: SlideLeft 0.2s forwards;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 300px;
+    height: 60px;
+
+    @media screen and (max-width: variables.$breakpoint-mobile) {
+        width: 260px;
+        height: 40px;
+    }
+
+    & p{
+        flex: 3;
+        margin: 0;
+        padding: 10px;
+        // padding: 10px 0px 0 10px;
+        font-size: 15px;
+  
+        
+        word-wrap: break-word;
+        overflow: hidden;
+//   text-overflow: ellipsis; 
+      
+
+        @media screen and (max-width: variables.$breakpoint-mobile) {
+            font-size: 12px;
+        }
+    }
+
+    .bar{
+        flex: 1;
+        height: 10px;
+    }
+}
+
+.notification-item.exit{    
+    animation: SlideRight 0.2s forwards;
+}
+
+.notification-item.success .bar{    
+    background-color: rgb(43, 172, 60);
+}
+
+.notification-item.error .bar{
+    background-color: tomato;
+}

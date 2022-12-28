@@ -2,6 +2,8 @@ import React from "react";
 import styles from "pages/NotFound/NotFound.module.scss";
 import { Link } from "react-router-dom";
 
+// Gestion de la page 404 en cas de route no match
+/*************************************************/
 const NotFound = () => {
   return (
     <div className={styles.container}>
