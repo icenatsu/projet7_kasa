@@ -41,8 +41,8 @@ const Home = () => {
     return [state.items, state.loading];
   }
 
-  // Récupération des états à l'appel de Fetch
-  /*******************************************/
+  // Récupération des données et états après appel de Fetch
+  /********************************************************/
   const [items, loading] = useFetchDatas();
 
   if (loading) {

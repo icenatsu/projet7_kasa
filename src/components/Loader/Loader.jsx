@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "components/Loader/Loader.module.scss";
 
+// Rendu du loader en attente de la réponse de l'API Fetch
+/*********************************************************/
 const Loader = () => {
   return (
     <div className={styles.suspension}>

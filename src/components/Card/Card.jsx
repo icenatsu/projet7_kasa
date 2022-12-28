@@ -2,6 +2,8 @@ import React from "react";
 import styles from "components/Card/Card.module.scss";
 import { Link } from "react-router-dom";
 
+// Gestion du lien, de l'image et titre du logement
+/**************************************************/
 const Card = ({ cover, id, title }) => {
   return (
     <article className={styles.card}>

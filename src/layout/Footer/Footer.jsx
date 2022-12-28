@@ -2,6 +2,8 @@ import React from "react";
 import logo from "assets/img/logo_kasa_monochrome.png";
 import styles from "layout/Footer/Footer.module.scss";
 
+// Composant Footer possédant le logo et copyright
+/**************************************************/
 const Footer = () => {
   return (
     <footer>
