@@ -39,9 +39,7 @@ const Accordion = ({ page, classList, text, title, style }) => {
         ].join(" ")}
         style={style}
       >
-        <div className={styles[`container__${page}__content__text`]}>
-          {text}
-        </div>
+        <p className={styles[`container__${page}__content__text`]}>{text}</p>
       </div>
     </div>
   );
