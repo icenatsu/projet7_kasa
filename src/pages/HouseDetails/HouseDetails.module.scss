@@ -1,22 +1,5 @@
 @use '../../sass/utils/variables';
 
-.container-pictures{
-    border-radius: variables.$big-radius;
-    margin: 40px auto 20px auto;
-    max-height: 415px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-
-    @media screen and (max-width: variables.$breakpoint-tablette) {
-        max-height: 330px;    
-    }
-    @media screen and (max-width: variables.$breakpoint-mobile) {
-        max-height: 255px;    
-    }
-}
-
 .container{
     color: variables.$primary-color;
     .container-general{
@@ -72,7 +55,7 @@
                 }
 
                 &__item{
-                    width: 140px;
+                    padding: 10px;
                     height: 32px;
                     border-radius: variables.$medium-radius;
                     background-color: variables.$primary-color;
@@ -84,7 +67,6 @@
                     
                     @media screen and (max-width: variables.$breakpoint-mobile) {
                         height: 30px;   
-                        width: 120px;
                     }
                 }
             }

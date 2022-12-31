@@ -38,6 +38,7 @@ const About = () => {
         }
       };
       fetchDatas();
+      // eslint-disable-next-line
     }, []);
     return [state.items, state.loading];
   }
@@ -53,20 +54,20 @@ const About = () => {
   return (
     <>
       <Banner srcImg={BannerAbout} altTexte="Photo de paysage de montagnes" />
-      <div className={styles.dropdowns}>
+      <section className={styles.dropdowns}>
         {items.map((about, index) => {
           return (
             <Accordion
               page="about"
               classList="flex_col_80"
               title={about.title}
-              text={about.text}
+              text={<li>{about.text}</li>}
               key={index}
               style={{ borderRadius: `${5}px` }}
             />
           );
         })}
-      </div>
+      </section>
     </>
   );
 };

@@ -52,6 +52,7 @@ const HouseDetails = () => {
         }
       };
       fetchDatas();
+      // eslint-disable-next-line
     }, [id, navigate]);
 
     return [state.items, state.loading];
@@ -68,9 +69,9 @@ const HouseDetails = () => {
   if (items.length !== 0)
     return (
       <>
-        <div className={styles["container-pictures"]}>
-          <Slide pictures={items.pictures}></Slide>
-        </div>
+        {/* <div className={styles["container-pictures"]}> */}
+        <Slide pictures={items.pictures}></Slide>
+        {/* </div> */}
         <section className={styles.container}>
           <div className={styles["container-general"]}>
             <div className={styles["container-infos"]}>
@@ -80,18 +81,18 @@ const HouseDetails = () => {
               <p className={styles["container-infos__location"]}>
                 {items.location}
               </p>
-              <div className={styles["container-infos__tags"]}>
+              <ul className={styles["container-infos__tags"]}>
                 {items.tags.map((tag, index) => {
                   return (
-                    <p
+                    <li
                       className={styles["container-infos__tags__item"]}
                       key={index}
                     >
                       {tag}
-                    </p>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
             <div className={styles["container-host-rate"]}>
               <div className={styles["container-host-rate__host"]}>
@@ -111,14 +112,14 @@ const HouseDetails = () => {
                       key={rate.toString()}
                       className={styles.star}
                       src={fullStar}
-                      alt="Full star"
+                      alt="Etoile pleine"
                     />
                   ) : (
                     <img
                       key={rate.toString()}
                       className={styles.star}
                       src={emptyStar}
-                      alt="Empty star"
+                      alt="Etoile vide"
                     />
                   )
                 )}
@@ -130,7 +131,7 @@ const HouseDetails = () => {
               page="houseDetails"
               classList="flex_col_45"
               title="Description"
-              text={items.description}
+              text={<li>{items.description}</li>}
               style={{ borderRadius: `${10}px` }}
             />
             <Accordion
@@ -140,9 +141,9 @@ const HouseDetails = () => {
               style={{ borderRadius: `${10}px` }}
               text={items.equipments.map((equipments, index) => {
                 return (
-                  <p className={styles.equipments} key={index}>
+                  <li className={styles.equipments} key={index}>
                     {equipments}
-                  </p>
+                  </li>
                 );
               })}
             />

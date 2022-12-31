@@ -37,6 +37,7 @@ const Home = () => {
         }
       };
       fetchDatas();
+      // eslint-disable-next-line
     }, []);
     return [state.items, state.loading];
   }

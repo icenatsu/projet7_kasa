@@ -60,7 +60,13 @@ const Slide = ({ pictures }) => {
       >
         {pictures.map((picture, index) => {
           return (
-            <div className={styles["slide__content__item"]} key={index}>
+            <div
+              className={[
+                styles["slide__content__item"],
+                !show && styles.active,
+              ].join(" ")}
+              key={index}
+            >
               <img src={picture} alt="illustration du logement" />
             </div>
           );
