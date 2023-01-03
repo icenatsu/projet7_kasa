@@ -25,6 +25,7 @@ const HouseDetails = () => {
       items: [],
       loading: true,
     });
+
     const dispatch = useNotification();
 
     useEffect(() => {
