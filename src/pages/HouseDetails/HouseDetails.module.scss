@@ -55,7 +55,7 @@
                 }
 
                 &__item{
-                    padding: 10px;
+                    padding: 10px 20px 10px 20px;
                     height: 32px;
                     border-radius: variables.$medium-radius;
                     background-color: variables.$primary-color;
@@ -63,7 +63,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    margin: 2px;  
+                    margin: 5px;  
                     
                     @media screen and (max-width: variables.$breakpoint-mobile) {
                         height: 30px;   
