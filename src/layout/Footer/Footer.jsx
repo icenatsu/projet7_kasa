@@ -10,7 +10,9 @@ const Footer = () => {
       <div className={styles.logo}>
         <img src={logo} alt="logo kasa monochrome"></img>
       </div>
-      <p className={styles.copyright}>© 2020 Kasa. All rights reserved</p>
+      <p className={styles.copyright}>
+        <small>© 2020 Kasa. All rights reserved</small>
+      </p>
     </footer>
   );
 };

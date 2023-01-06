@@ -15,7 +15,7 @@ const Accordion = ({ page, classList, text, title, style }) => {
   };
 
   return (
-    <div
+    <article
       className={[styles[`container__${page}`], styles[classList]].join(" ")}
     >
       <div
@@ -39,11 +39,9 @@ const Accordion = ({ page, classList, text, title, style }) => {
         ].join(" ")}
         style={style}
       >
-        <div className={styles[`container__${page}__content__text`]}>
-          {text}
-        </div>
+        <ul className={styles[`container__${page}__content__text`]}>{text}</ul>
       </div>
-    </div>
+    </article>
   );
 };
 

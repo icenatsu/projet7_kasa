@@ -11,7 +11,6 @@ const Home = () => {
   // Gestion de fetch
   // Temps de chargement, récupération des données et msg flash si erreur
   /**********************************************************************/
-
   function useFetchDatas() {
     const [state, setState] = useState({
       items: [],
@@ -37,12 +36,11 @@ const Home = () => {
         }
       };
       fetchDatas();
+      // eslint-disable-next-line
     }, []);
     return [state.items, state.loading];
   }
 
-  // Récupération des données et états après appel de Fetch
-  /********************************************************/
   const [items, loading] = useFetchDatas();
 
   if (loading) {

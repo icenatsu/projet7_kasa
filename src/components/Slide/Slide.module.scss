@@ -6,6 +6,21 @@
     position: relative;
     white-space: nowrap;
     @include mixins.fullSize;
+    overflow: hidden;
+    border-radius: variables.$big-radius;
+    margin: 40px auto 20px auto;
+    max-height: 415px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @media screen and (max-width: variables.$breakpoint-tablette) {
+        max-height: 330px;    
+    }
+    @media screen and (max-width: variables.$breakpoint-mobile) {
+        max-height: 255px;    
+    }
 
 
     &__next-previous{
@@ -56,3 +71,6 @@
     }
 }
 
+.active{
+    height: auto;
+}

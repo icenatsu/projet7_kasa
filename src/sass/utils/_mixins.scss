@@ -2,14 +2,9 @@
 
 @mixin largeScreen {
     max-width: variables.$maxWidth;
-    // width: 95%;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 0 20px;
-
-    // margin: 3% auto;
-    // padding: 0 3%;
 }
-// Voir avec Wyona..
 
 @mixin absoluteCenter{
     position: absolute;
