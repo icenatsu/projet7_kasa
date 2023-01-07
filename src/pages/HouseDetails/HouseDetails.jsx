@@ -103,7 +103,7 @@ const HouseDetails = () => {
                 <img
                   className={styles["container-host-rate__host__picture"]}
                   src={items.host.picture}
-                  alt="Photo de l'hôte"
+                  alt="Cliché de l'hôte"
                 ></img>
               </div>
               <div className={styles["container-host-rate__rating"]}>
