@@ -67,7 +67,7 @@ const Slide = ({ pictures }) => {
               ].join(" ")}
               key={index}
             >
-              <img src={picture} alt="illustration du logement" />
+              <img src={picture} alt="Photo de couverture du bien" />
             </div>
           );
         })}
