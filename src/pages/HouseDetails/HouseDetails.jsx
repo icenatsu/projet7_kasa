@@ -9,7 +9,7 @@ import Loader from "components/Loader/Loader";
 import { useNotification } from "../../Notifications/NotificationsProvider";
 
 const HouseDetails = () => {
-  // Tableau des rates
+  // Tableau des rates1
   /*******************/
   const stars = [1, 2, 3, 4, 5];
 
@@ -58,10 +58,10 @@ const HouseDetails = () => {
 
     return [state.items, state.loading];
   }
-
   // Récupération des données et états après appel de Fetch
   /********************************************************/
   const [items, loading] = useFetchDatas();
+  console.log(items);
 
   if (loading) {
     return <Loader />;

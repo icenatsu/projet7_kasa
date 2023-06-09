@@ -42,7 +42,7 @@ const Home = () => {
   }
 
   const [items, loading] = useFetchDatas();
-
+  console.log(items);
   if (loading) {
     return <Loader />;
   }

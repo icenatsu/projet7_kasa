@@ -5,6 +5,7 @@ import nextArrow from "assets/img/arrow_right.png";
 import previousArrow from "assets/img/arrow_left.png";
 
 const Slide = ({ pictures }) => {
+  console.log(pictures);
   // Gestion de l'état de l'image courante
   // en fonction des boutons prev ou next
   /****************************************/
@@ -22,7 +23,7 @@ const Slide = ({ pictures }) => {
     }
   }
 
-  // Gestion de la visibilité des boutons prev et next
+  // Gestion de la visibilité d es boutons prev et next
   // en fonction du nombre d'images (si plus d'une image)
   /*******************************************************/
   const [show, setShow] = useState(false);
